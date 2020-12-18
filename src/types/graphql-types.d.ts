@@ -1859,8 +1859,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1998,8 +1996,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2204,8 +2200,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___keywords'
   | 'siteMetadata___imageURI'
   | 'siteMetadata___siteUrl'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2298,8 +2292,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2511,16 +2503,16 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___version'
   | 'pluginCreator___pluginOptions___plugins___nodeAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
-  | 'pluginCreator___pluginOptions___implementation___info'
-  | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___name'
+  | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___configDir'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
-  | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___implementation___info'
+  | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___ssrAPIs'
   | 'pluginCreator___pluginFilepath'
@@ -2714,16 +2706,16 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginOptions___name'
   | 'pluginOptions___plugins___nodeAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
-  | 'pluginOptions___implementation___info'
-  | 'pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginOptions___path'
   | 'pluginOptions___name'
+  | 'pluginOptions___fileName'
   | 'pluginOptions___configDir'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
-  | 'pluginOptions___fileName'
+  | 'pluginOptions___implementation___info'
+  | 'pluginOptions___cssLoaderOptions___localIdentName'
   | 'nodeAPIs'
   | 'ssrAPIs'
   | 'pluginFilepath'
@@ -2835,16 +2827,16 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
-  implementation?: Maybe<SitePluginPluginOptionsImplementation>;
-  cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
   path?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  fileName?: Maybe<Scalars['String']>;
   configDir?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
-  fileName?: Maybe<Scalars['String']>;
+  implementation?: Maybe<SitePluginPluginOptionsImplementation>;
+  cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
 };
 
 export type SitePluginPluginOptionsCssLoaderOptions = {
@@ -2857,16 +2849,16 @@ export type SitePluginPluginOptionsCssLoaderOptionsFilterInput = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
-  implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
-  cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
   path?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  fileName?: Maybe<StringQueryOperatorInput>;
   configDir?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
-  fileName?: Maybe<StringQueryOperatorInput>;
+  implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
+  cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
 };
 
 export type SitePluginPluginOptionsImplementation = {
