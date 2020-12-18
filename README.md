@@ -1,5 +1,5 @@
 # Gatsby Sandbox 2021
-(https://www.gatsbyjs.com/starters/msallent/gatsby-starter-skeleton)」をベースに作成しました
+このレポジトリは「[gatsby-starter-skeleton](https://www.gatsbyjs.com/starters/msallent/gatsby-starter-skeleton)」をベースに作成しました
 
 フロントエンジニアとしてReactを扱っていますが、そこで面白いと感じた手段や方法について、モリモリに盛り込んで学習するテンプレート。
 
@@ -19,7 +19,7 @@ GraphQLスキーマまたはGraphQLドキュメントから型定義を自動生
 #### 参照
 
 - [Query型を自動生成する](https://qiita.com/Takepepe/items/144209f860fbe4d5e9bb#query%E5%9E%8B%E3%82%92%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B)
-- Gatsby pligin : [gatsby-plugin-graphql-codegen](https://www.gatsbyjs.com/plugins/gatsby-plugin-graphql-codegen/)
+- Gatsby Plugin : [gatsby-plugin-graphql-codegen](https://www.gatsbyjs.com/plugins/gatsby-plugin-graphql-codegen/)
 
 ### gatsby-plugin-ts-config
 
@@ -29,9 +29,12 @@ GraphQLスキーマまたはGraphQLドキュメントから型定義を自動生
 
 解消方法はいくつかあろうが、構成ファイル自体をTS化するのが一番スマートだろう。
 
+ただ、本家のマニュアルではちょっと分からなかった（英語力無い）ので、組み込み済スターターを使用した。
+
 #### 参照
 
-- Gatsby pligin : [gatsby-plugin-ts-config](https://www.gatsbyjs.com/plugins/gatsby-plugin-ts-config/)
+- Gatsby Plugin : [gatsby-plugin-ts-config](https://www.gatsbyjs.com/plugins/gatsby-plugin-ts-config/)
+- Gatsby Starter : [gatsby-starter-skeleton](https://www.gatsbyjs.com/starters/msallent/gatsby-starter-skeleton)
 
 ## Storybook
 
@@ -41,7 +44,7 @@ GraphQLスキーマまたはGraphQLドキュメントから型定義を自動生
 
 > コンポーネントのスタイルを設定する新しい方法。テーマベースの一貫性のあるスタイリング<br />xstyled
 
-xstyledはstyled-componentsの単なるラッパーです。`styled-components`や`styled-system`から発展したもので、堅牢さと可用性をあわせもっています。
+xstyledはstyled-componentsのラッパーです。`styled-components`や`styled-system`から発展したもので、堅牢さと可用性をあわせもっています。
 
 `styled-components`は堅牢なプレゼンテーショナルコンポーネントの構築と運用を実現してくれて、本当に感動しました。
 
