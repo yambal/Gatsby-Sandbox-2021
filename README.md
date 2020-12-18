@@ -1,65 +1,21 @@
-<p align="center">
-  <img alt="CI Status" src="https://travis-ci.com/msallent/gatsby-starter-skeleton.svg?branch=master" />
-  <br />
-  <br />
-  <a href="https://gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/Gatsby-Logo.svg" width="350" />
-  </a>
-</p>
+# Gatsby Sandbox 2021
 
-<br />
+## TypeScript
 
-**Gatsby Skeleton** is an (almost) barebones Gatsby starter that intends to save the user the hassle of having to set up everything every time and start with development right away.
+### gatsby-plugin-graphql-codegen
+  - Query型を自動生成する [See](https://qiita.com/Takepepe/items/144209f860fbe4d5e9bb#query%E5%9E%8B%E3%82%92%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B)
+  - [gatsby-plugin-graphql-codegen](https://www.gatsbyjs.com/plugins/gatsby-plugin-graphql-codegen/)
 
-It includes TypeScript (even for the `gatsby-*` files!) along ESLint, Prettier, stylelint, husky and lint-staged.
+### gatsby-plugin-ts-config
 
-## :zap: Features
+> このプラグインを使用すると`gatsby-*`などの構成ファイルが Typescriptで書き込むことができます。
 
-**dependencies**:
+  - [gatsby-plugin-ts-config](https://www.gatsbyjs.com/plugins/gatsby-plugin-ts-config/)
 
-    ├── gatsby-image
-    ├── gatsby-plugin-react-helmet
-    ├── gatsby-plugin-sass
-    ├── gatsby-plugin-sharp
-    ├── gatsby-plugin-sitemap
-    ├── gatsby-plugin-svgr
-    ├── gatsby-source-filesystem
-    ├── gatsby-transformer-sharp
-    ├── normalize.css
-    └── react-helmet
+`gatsby-browser.js`と`gatsby-ssr.js`にProviderを設置する事になるが、本体部分をTS(TSX)化しても、読み込み側がJSならばコンパイルで詰んでしまう。
 
-**devDependencies**:
+解消方法はいくつかあろうが、構成ファイル自体をTS化するのが一番スマートだろう。
 
-    ├── eslint
-    ├── husky
-    ├── lint-staged
-    ├── prettier
-    ├── stylelint
-    └── typescript
+## Storybook
 
-## 🚀 Quick start
-
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the gatsby-skeleton starter.
-
-    ```sh
-    gatsby new my-project https://github.com/msallent/gatsby-skeleton/
-    ```
-
-1.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```sh
-    cd my-project/
-    gatsby develop
-    ```
-
-1.  **Open the source code and start editing!**
-
-    Your site is now running at `http://localhost:8000`!
-
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
-
-    Open the `my-project` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and the browser will update in real time!
+## xstyled

@@ -21,6 +21,10 @@ const gatsbyConfig: GatsbyConfig = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-svgr',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
@@ -30,9 +34,6 @@ const gatsbyConfig: GatsbyConfig = {
         },
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-svgr',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -40,7 +41,26 @@ const gatsbyConfig: GatsbyConfig = {
         name: 'assets',
       },
     },
-    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+              path: resolve(__dirname, '../pages'),
+              name: 'pages',
+            },
+          },
+        ]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-graphql-codegen',
+      options: {
+        fileName: `src/types/graphql-types.d.ts`
+      }
+    }
   ],
 };
 

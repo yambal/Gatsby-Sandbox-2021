@@ -1,0 +1,5 @@
+---
+template: HomeTemplate
+---
+
+# Hello Gatsby
