@@ -2,5 +2,4 @@
 title: これはテストです
 template: BlogTemplate
 ---
-
-## Hello Gatsby
+## Netlify CMS 更新
