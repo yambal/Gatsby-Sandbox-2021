@@ -6,6 +6,12 @@ type HTMLRendererProps = SystemProps & {
   html: string
 }
 
+const Wrapper = styled.divBox`
+  h2 {
+    color: red;
+  }
+`
+
 export const HTMLRenderer = ({ html, ...wrapperProps }: HTMLRendererProps) => {
-  return <Box dangerouslySetInnerHTML={{__html: html}} {...wrapperProps} />
+  return <Wrapper dangerouslySetInnerHTML={{__html: html}} {...wrapperProps} />
 }

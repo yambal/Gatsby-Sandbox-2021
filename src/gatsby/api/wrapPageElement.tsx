@@ -5,6 +5,6 @@ import { AppProvider } from '../../app/AppProvider';
 
 export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({ element, props }) => (
   <AppProvider>
-    <Layout {...props}>{element}</Layout>
+    {element}
   </AppProvider>
 );

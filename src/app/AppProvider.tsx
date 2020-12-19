@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react'
 import { ThemeProvider, ColorModeProvider } from '@xstyled/styled-components'
 import { theme } from '../style/theme'
 import { GlobalStyle } from '../style/GlobalStyle'
+import { SiteMetadataProvider } from './SiteMetadataProvider'
+import { SEO } from '../components/SEO'
 
 type AppProviderProps = {
   children: ReactNode
@@ -9,11 +11,13 @@ type AppProviderProps = {
 
 export function AppProvider({ children }: AppProviderProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <ColorModeProvider>
-        {children}
-      </ColorModeProvider>
-    </ThemeProvider>
+    <SiteMetadataProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <ColorModeProvider>
+          {children}
+        </ColorModeProvider>
+      </ThemeProvider>
+    </SiteMetadataProvider>
   )
 }

@@ -1,64 +1,72 @@
 import React, { FunctionComponent } from 'react';
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, PageProps } from 'gatsby';
 import favicon from '../../assets/favicon.ico';
+import { useSiteMetadata } from '../../app/SiteMetadataProvider';
 
-interface SEOProps {
-  title?: string;
-  description?: string;
-  keywords?: Array<string>;
-  imageURI?: string;
-  language?: string;
-  location: Location;
-}
-
-interface SiteMetadataQuery {
-  site: {
-    siteMetadata: {
-      title: string;
-      description: string;
-      keywords: Array<string>;
-      imageURI: string;
-    };
-  };
+type SEOProps = PageProps &{
+  pageTitle?: string | null
+  description?: string
+  pageKeywords?: string[]
+  lang?: string
 }
 
 export const SEO: FunctionComponent<SEOProps> = ({
-  title,
-  description,
-  keywords = [],
-  imageURI,
-  language = 'en',
   location,
-}) => {
-  const {
-    site: { siteMetadata },
-  } = useStaticQuery<SiteMetadataQuery>(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            keywords
-            imageURI
-          }
-        }
-      }
-    `
-  );
+  pageTitle,
+  description,
+  pageKeywords,
+  lang
+}: SEOProps) => {
+  const siteMetadata = useSiteMetadata()
+
+  const siteTitle = siteMetadata?.title || 'hoge'
+  const mataDesc =  description || siteMetadata?.description || 'description'
+  const htmlLang = lang || siteMetadata?.lang || 'en'
+  const keywords = pageKeywords || siteMetadata?.keywords || []
 
   return (
     <Helmet
-      title={title}
-      defaultTitle={siteMetadata.title}
+      title={pageTitle || ''}
+      defaultTitle={siteTitle}
+      titleTemplate={`%s - ${siteTitle}`}
+      htmlAttributes={{ lang: htmlLang }}
+      meta={[
+        {
+          name: 'description',
+          content: mataDesc
+        },
+        {
+          property: 'og:title',
+          content: pageTitle ? `${siteTitle} - ${siteTitle}` : siteTitle,
+        },
+        {
+          property: 'og:description',
+          content: mataDesc
+        },
+        {
+          property: 'keywords',
+          content: [keywords].join(', '),
+        },
+        {
+          property: 'og:url',
+          content: location.href,
+        }
+      ]}
+    />
+  )
+  /*
+  return (
+    <Helmet
+      title={title || ''}
+      defaultTitle={siteMetadata?.title || ''}
       titleTemplate={`${siteMetadata.title} - %s`}
       htmlAttributes={{ lang: language }}
       link={[{ rel: 'icon', type: 'image/ico', href: favicon }]}
       meta={[
         {
           name: 'description',
-          content: description || siteMetadata.description,
+          content: description || siteMetadata?.description?,
         },
         {
           property: 'keywords',
@@ -95,4 +103,5 @@ export const SEO: FunctionComponent<SEOProps> = ({
       ]}
     />
   );
+  */
 };

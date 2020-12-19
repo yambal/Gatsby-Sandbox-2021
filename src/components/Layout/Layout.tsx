@@ -6,7 +6,6 @@ export type LayoutProps = Omit<PageProps, 'children'>;
 
 export const Layout: FunctionComponent<LayoutProps> = ({ children, location }) => (
   <>
-    <SEO location={location} />
     {children}
   </>
 );

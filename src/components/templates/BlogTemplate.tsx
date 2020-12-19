@@ -1,6 +1,6 @@
 import React from 'react'
-import { graphql, Link, PageProps } from "gatsby"
-import { HomeTemplateQuery } from "../../types/graphql-types"
+import { graphql, PageProps } from "gatsby"
+import { BlogTemplateQuery } from "../../types/graphql-types"
 import { MarkdownRenderer } from '../atoms/Renderer/MarkdownRenderer'
 import { Box } from '@xstyled/styled-components'
 import { ColorModeSwitcher } from '../organisms/ColorModeSwitcher'
@@ -11,21 +11,21 @@ import { SEO } from '../SEO'
  * pageQuery のレスポンス
  * gatsby-plugin-graphql-codegen で types\graphql-types.d.ts に自動追記される型を参照する
  **/
-type HomeTemplateDataProps = PageProps & {
-  data: HomeTemplateQuery
+type BlogTemplateDataProps = PageProps & {
+  data: BlogTemplateQuery
 }
 
-function HomeTemplate(props: HomeTemplateDataProps){
+function BlogTemplate(props: BlogTemplateDataProps){
   const { data: { pageQueryData } } = props
   const siteMetadata = useSiteMetadata()
 
   return (
     <Box bg="bg">
-      <SEO {...props}/>
+      <SEO {...props} pageTitle={pageQueryData?.frontmatter?.title} pageKeywords={['テスト', '実験']}/>
       <ColorModeSwitcher />
-      <h1>{siteMetadata?.title}</h1>
+      <h1>{pageQueryData?.frontmatter?.title}</h1>
       <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
-      <Link to="/blog/test/">Test</Link>
+      <pre>{JSON.stringify(siteMetadata, null, 2)}</pre>
     </Box>
   )
 }
@@ -37,7 +37,7 @@ function HomeTemplate(props: HomeTemplateDataProps){
  * 本当は useStaticQuery で組んだ方がスマートだろうけど、変数が使えない
  */
 export const pageQuery = graphql`
-  query HomeTemplate($id: String) {
+  query BlogTemplate($id: String) {
     pageQueryData: markdownRemark(id: {eq: $id}) {
       rawMarkdownBody
       frontmatter {
@@ -47,4 +47,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default HomeTemplate
+export default BlogTemplate
