@@ -1,5 +1,6 @@
 ---
+title: これはテストです
 template: HomeTemplate
 ---
 
-# Hello Gatsby
+## Hello Gatsby

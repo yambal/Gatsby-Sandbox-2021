@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { PageProps } from 'gatsby';
 import { ReactComponent as Logo } from '../assets/svg/gatsby.svg';
 import styles from '../style/pages/index.module.scss';
-import { Button } from '../components/atom/Button';
+import { Button } from '../components/atoms/Button';
 
 const Index: FunctionComponent<PageProps> = () => (
   <div>

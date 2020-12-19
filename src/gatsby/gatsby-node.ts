@@ -73,7 +73,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       createPage({
         path: slug,
         component: path.resolve(
-          `src/templates/${String(template)}.tsx`
+          `src/components/templates/${String(template)}.tsx`
         ),
         context: {
           id
