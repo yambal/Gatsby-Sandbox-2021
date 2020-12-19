@@ -6,6 +6,17 @@ media_folder: static/images/uploaded
 public_folder: /images/uploaded
 
 collections:
+  - name: "home"
+    label: "home"
+    files:
+      - file: "src/pages/index.md"
+      label: "トップページ"
+      name: "index"
+      fields:
+        - { label: "Template", name: "template", widget: "hidden", default: "BlogTemplate"}
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Body", name: "body", widget: "markdown" }
+        - { label: "Featured Image", name: "thumbnail", widget: "image" }
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
