@@ -6,6 +6,7 @@ import { Box } from '@xstyled/styled-components'
 import { ColorModeSwitcher } from '../organisms/ColorModeSwitcher'
 import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
+import { Container } from '../Layout/Container'
 
 /**
  * pageQuery のレスポンス
@@ -23,9 +24,11 @@ function BlogTemplate(props: BlogTemplateDataProps){
     <Box bg="bg">
       <SEO {...props} pageTitle={pageQueryData?.frontmatter?.title} pageKeywords={['テスト', '実験']}/>
       <ColorModeSwitcher />
-      <h1>{pageQueryData?.frontmatter?.title}</h1>
-      <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
-      <pre>{JSON.stringify(siteMetadata, null, 2)}</pre>
+      <Container>
+        <h1>{pageQueryData?.frontmatter?.title}</h1>
+        <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
+        <pre>{JSON.stringify(siteMetadata, null, 2)}</pre>
+      </Container>
     </Box>
   )
 }

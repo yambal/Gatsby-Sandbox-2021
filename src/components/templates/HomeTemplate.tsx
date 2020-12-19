@@ -6,6 +6,7 @@ import { Box } from '@xstyled/styled-components'
 import { ColorModeSwitcher } from '../organisms/ColorModeSwitcher'
 import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
+import { Container } from '../Layout/Container'
 
 /**
  * pageQuery のレスポンス
@@ -23,9 +24,11 @@ function HomeTemplate(props: HomeTemplateDataProps){
     <Box bg="bg">
       <SEO {...props}/>
       <ColorModeSwitcher />
-      <h1>{siteMetadata?.title}</h1>
-      <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
-      <Link to="/blog/test/">Test</Link>
+      <Container>
+        <h1>{siteMetadata?.title}</h1>
+        <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
+        <Link to="/blog/test/">Test</Link>
+      </Container>
     </Box>
   )
 }

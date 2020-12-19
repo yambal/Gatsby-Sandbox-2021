@@ -1,33 +1,67 @@
-import { createGlobalStyle, DefaultTheme, GlobalStyleComponent } from '@xstyled/styled-components'
+import { createGlobalStyle, DefaultTheme, GlobalStyleComponent, th } from '@xstyled/styled-components'
+import { normalize } from 'polished'
 
 export const GlobalStyle = createGlobalStyle`
-  /**
-   * 1. Change the line height in all browsers (opinionated).
-   * 2. Breaks words to prevent overflow in all browsers (opinionated).
-   * 3. Use a 4-space tab width in all browsers (opinionated).
-   * 4. Use the default cursor in all browsers (opinionated).
-   * 5. Remove the grey highlight on links in iOS (opinionated).
-   * 6. Prevent adjustments of font size after orientation changes in
-   *    IE on Windows Phone and in iOS.
-   */
-  html {
-    line-height: 1.5; /* 1 */
-    word-break: break-word; /* 2 */
-    tab-size: 4; /* 3 */
-    cursor: default; /* 4 */
-    -webkit-tap-highlight-color: transparent /* 5 */;
-    text-size-adjust: 100%; /* 6 */
+  ${normalize()}
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 
-  /**
-   * Remove the margin in all browsers (opinionated).
-   */
+  html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-tap-highlight-color: rgba(black, 0);
+  }
 
   body {
-    margin: 0;
+    font-family: ${th.font('native')};
+    font-size: ${th.fontSize('base')};
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
   }
 
-  main {
-    display: block;
+  /**
+   * Headings
+   **/
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: ${th.fontSize('h1')};
+  }
+
+  h2 {
+    font-size: ${th.fontSize('h2')};
+  }
+
+  h3 {
+    font-size: ${th.fontSize('h3')};
+  }
+
+  h4 {
+    font-size: ${th.fontSize('h4')};
+  }
+
+  h5 {
+    font-size: ${th.fontSize('h5')};
+  }
+
+  h6 {
+    font-size: ${th.fontSize('h6')};
   }
 `
