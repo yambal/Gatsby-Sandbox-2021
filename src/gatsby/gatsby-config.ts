@@ -29,7 +29,7 @@ const gatsbyConfig: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
-        modulePath: resolve(__dirname, '../cms/cms.tsx'),
+        modulePath: resolve(__dirname, '../cms/cms.js'),
       }
     },
     {

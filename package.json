@@ -18,7 +18,8 @@
     "serve": "gatsby serve --host 0.0.0.0",
     "type-check": "tsc",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "tsc": "tsc src/cms/previewTemplates/BlogPreviewTemplate.tsx --outDir src/cms/previewTemplates/"
   },
   "dependencies": {
     "@xstyled/styled-components": "^1.19.1",

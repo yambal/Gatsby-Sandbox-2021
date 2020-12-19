@@ -2517,7 +2517,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___version'
   | 'pluginCreator___pluginOptions___plugins___nodeAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
-  | 'pluginCreator___pluginOptions___modulePath'
   | 'pluginCreator___pluginOptions___implementation___info'
   | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginCreator___pluginOptions___path'
@@ -2528,6 +2527,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
+  | 'pluginCreator___pluginOptions___modulePath'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -2723,7 +2723,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginOptions___name'
   | 'pluginOptions___plugins___nodeAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
-  | 'pluginOptions___modulePath'
   | 'pluginOptions___implementation___info'
   | 'pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginOptions___path'
@@ -2734,6 +2733,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
+  | 'pluginOptions___modulePath'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -2847,7 +2847,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
-  modulePath?: Maybe<Scalars['String']>;
   implementation?: Maybe<SitePluginPluginOptionsImplementation>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
   path?: Maybe<Scalars['String']>;
@@ -2858,6 +2857,7 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
+  modulePath?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsCssLoaderOptions = {
@@ -2870,7 +2870,6 @@ export type SitePluginPluginOptionsCssLoaderOptionsFilterInput = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
-  modulePath?: Maybe<StringQueryOperatorInput>;
   implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
   path?: Maybe<StringQueryOperatorInput>;
@@ -2881,6 +2880,7 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
+  modulePath?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsImplementation = {
