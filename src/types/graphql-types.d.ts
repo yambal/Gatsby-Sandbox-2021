@@ -2204,6 +2204,7 @@ export type SiteFieldsEnum =
   | 'siteMetadata___keywords'
   | 'siteMetadata___imageURI'
   | 'siteMetadata___siteUrl'
+  | 'siteMetadata___lang'
   | 'port'
   | 'host'
   | 'polyfill'
@@ -2922,6 +2923,7 @@ export type SiteSiteMetadata = {
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
   imageURI?: Maybe<Scalars['String']>;
   siteUrl?: Maybe<Scalars['String']>;
+  lang?: Maybe<Scalars['String']>;
 };
 
 export type SiteSiteMetadataFilterInput = {
@@ -2930,6 +2932,7 @@ export type SiteSiteMetadataFilterInput = {
   keywords?: Maybe<StringQueryOperatorInput>;
   imageURI?: Maybe<StringQueryOperatorInput>;
   siteUrl?: Maybe<StringQueryOperatorInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSortInput = {
@@ -2963,10 +2966,20 @@ export type WebPOptions = {
   quality?: Maybe<Scalars['Int']>;
 };
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+export type SiteMetadataProviderQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'keywords' | 'imageURI'>> }> };
+export type SiteMetadataProviderQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'keywords' | 'imageURI' | 'siteUrl' | 'lang'>> }> };
+
+export type BlogTemplateQueryVariables = Exact<{
+  id?: Maybe<Scalars['String']>;
+}>;
+
+
+export type BlogTemplateQuery = { pageQueryData?: Maybe<(
+    Pick<MarkdownRemark, 'rawMarkdownBody'>
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
+  )> };
 
 export type HomeTemplateQueryVariables = Exact<{
   id?: Maybe<Scalars['String']>;
@@ -2978,10 +2991,10 @@ export type HomeTemplateQuery = { pageQueryData?: Maybe<(
     & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
   )> };
 
-export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_2_Query = { allMarkdownRemark: { edges: Array<{ node: (
+export type Unnamed_1_Query = { allMarkdownRemark: { edges: Array<{ node: (
         Pick<MarkdownRemark, 'id'>
         & { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'template'>> }
       ) }> } };

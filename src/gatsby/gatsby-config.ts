@@ -13,11 +13,12 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const gatsbyConfig: GatsbyConfig = {
   siteMetadata: {
-    title: 'Gatsby Skeleton',
+    title: 'Gatsby Sandbox 2021',
     description: 'Gatsby starter featuring TypeScript, ESLint, Prettier and more...',
-    keywords: ['gatsby', 'starter', 'typescript', 'eslint', 'prettier', 'layout', 'seo'],
+    keywords: ['gatsby', 'typescript', 'storybook', 'xstyled', 'styled-component'],
     imageURI: '/social.jpg',
     siteUrl: 'https://gatsby-starter-skeleton.netlify.app',
+    lang: 'ja',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
