@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from "gatsby"
 import { HomeTemplateQuery } from "../../types/graphql-types"
 import { MarkdownRenderer } from '../atoms/Renderer/MarkdownRenderer'
+import { Box } from '@xstyled/styled-components'
 
 /**
  * pageQuery のレスポンス
@@ -14,10 +15,10 @@ type HomeTemplateDataProps = {
 function HomeTemplate(props: HomeTemplateDataProps){
   const { data: { pageQueryData } } = props
   return (
-    <>
+    <Box bg="bg">
       <h1>{pageQueryData?.frontmatter?.title}</h1>
       <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
-    </>
+    </Box>
   )
 }
 
