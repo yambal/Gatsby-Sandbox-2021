@@ -20,7 +20,7 @@ export const SEO: FunctionComponent<SEOProps> = ({
 }: SEOProps) => {
   const siteMetadata = useSiteMetadata()
 
-  const siteTitle = siteMetadata?.title || 'hoge'
+  const siteTitle = siteMetadata?.title || 'Gatsby Sandbox 2021'
   const mataDesc =  description || siteMetadata?.description || 'description'
   const htmlLang = lang || siteMetadata?.lang || 'en'
   const keywords = pageKeywords || siteMetadata?.keywords || []
@@ -38,7 +38,7 @@ export const SEO: FunctionComponent<SEOProps> = ({
         },
         {
           property: 'og:title',
-          content: pageTitle ? `${siteTitle} - ${siteTitle}` : siteTitle,
+          content: pageTitle ? `${pageTitle} - ${siteTitle}` : siteTitle,
         },
         {
           property: 'og:description',
