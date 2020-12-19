@@ -10,11 +10,11 @@ collections:
     label: "Blog"
     folder: "src/pages/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
       preview: true # プレビュー表示を有効化
     publish_mode: editorial_workflow # ワークフロー管理を有効化
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Template", name: "template", widget: "string" }
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Template", name: "template", widget: "select", options: ["BlogTemplate"]}
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
