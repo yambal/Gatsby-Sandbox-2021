@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql, PageProps } from 'gatsby';
+import { PageProps } from 'gatsby';
 import favicon from '../../assets/favicon.ico';
 import { useSiteMetadata } from '../../app/SiteMetadataProvider';
 
