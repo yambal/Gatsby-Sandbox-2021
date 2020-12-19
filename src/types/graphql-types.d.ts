@@ -2517,6 +2517,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___version'
   | 'pluginCreator___pluginOptions___plugins___nodeAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
+  | 'pluginCreator___pluginOptions___modulePath'
   | 'pluginCreator___pluginOptions___implementation___info'
   | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginCreator___pluginOptions___path'
@@ -2722,6 +2723,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginOptions___name'
   | 'pluginOptions___plugins___nodeAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
+  | 'pluginOptions___modulePath'
   | 'pluginOptions___implementation___info'
   | 'pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginOptions___path'
@@ -2845,6 +2847,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
+  modulePath?: Maybe<Scalars['String']>;
   implementation?: Maybe<SitePluginPluginOptionsImplementation>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
   path?: Maybe<Scalars['String']>;
@@ -2867,6 +2870,7 @@ export type SitePluginPluginOptionsCssLoaderOptionsFilterInput = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+  modulePath?: Maybe<StringQueryOperatorInput>;
   implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
   path?: Maybe<StringQueryOperatorInput>;
