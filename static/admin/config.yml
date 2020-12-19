@@ -17,3 +17,4 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Template", name: "template", widget: "string" }
+      - {label: "Body", name: "body", widget: "markdown"}
