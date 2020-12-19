@@ -19,7 +19,7 @@
     "type-check": "tsc",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "tsc": "tsc src/cms/previewTemplates/BlogPreviewTemplate.tsx --outDir src/cms/previewTemplates/"
+    "tsc": "tsc src/cms/previewTemplates/BlogPreviewTemplate.tsx --jsx react --outDir src/cms/previewTemplates/js"
   },
   "dependencies": {
     "@xstyled/styled-components": "^1.19.1",

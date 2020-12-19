@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { MarkdownRenderer } from '../../components/atoms/Renderer/MarkdownRenderer'
 
 type BlogPreviewTemplateProps = {
   entry: {
@@ -16,7 +16,7 @@ const BlogPreviewTemplate = ({ entry, widgetFor }: BlogPreviewTemplateProps) => 
     <div>
       <pre>{JSON.stringify(data, null, 2)}</pre>
       <pre>{JSON.stringify(body, null, 2)}</pre>
-      BlogPreviewTemplate
+      <MarkdownRenderer rawMarkdown={data.body} isPreview={true} />
     </div>
   )
 }
