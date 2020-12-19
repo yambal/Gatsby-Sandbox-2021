@@ -1,16 +1,19 @@
-import { GatsbyBrowser } from 'gatsby'
 import React, { ReactNode } from 'react'
-import { ThemeProvider } from '@xstyled/styled-components'
+import { ThemeProvider, ColorModeProvider } from '@xstyled/styled-components'
 import { theme } from '../style/theme'
+import { GlobalStyle } from '../style/GlobalStyle'
 
-type ProviderProps = {
+type AppProviderProps = {
   children: ReactNode
 }
 
-export function AppProvider({ children }: ProviderProps) {
+export function AppProvider({ children }: AppProviderProps) {
   return (
     <ThemeProvider theme={theme}>
-      {children}
+      <GlobalStyle />
+      <ColorModeProvider>
+        {children}
+      </ColorModeProvider>
     </ThemeProvider>
   )
 }

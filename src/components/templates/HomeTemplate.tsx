@@ -1,14 +1,15 @@
 import React from 'react'
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import { HomeTemplateQuery } from "../../types/graphql-types"
 import { MarkdownRenderer } from '../atoms/Renderer/MarkdownRenderer'
 import { Box } from '@xstyled/styled-components'
+import { ColorModeSwitcher } from '../organisms/ColorModeSwitcher'
 
 /**
  * pageQuery のレスポンス
  * gatsby-plugin-graphql-codegen で types\graphql-types.d.ts に自動追記される型を参照する
  **/
-type HomeTemplateDataProps = {
+type HomeTemplateDataProps = PageProps & {
   data: HomeTemplateQuery
 }
 
@@ -16,6 +17,7 @@ function HomeTemplate(props: HomeTemplateDataProps){
   const { data: { pageQueryData } } = props
   return (
     <Box bg="bg">
+      <ColorModeSwitcher />
       <h1>{pageQueryData?.frontmatter?.title}</h1>
       <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
     </Box>

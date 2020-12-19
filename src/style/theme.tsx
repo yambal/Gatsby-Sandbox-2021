@@ -1,5 +1,11 @@
 export const theme = {
   colors: {
-    bg: 'white'
+    bg: 'white',
+
+    modes: {
+      dark: {
+        bg: 'black',
+      }
+    }
   }
 }
