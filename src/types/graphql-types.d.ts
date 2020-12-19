@@ -2527,7 +2527,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
-  | 'pluginCreator___pluginOptions___modulePath'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -2733,7 +2732,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
-  | 'pluginOptions___modulePath'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -2857,7 +2855,6 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
-  modulePath?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsCssLoaderOptions = {
@@ -2880,7 +2877,6 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
-  modulePath?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsImplementation = {

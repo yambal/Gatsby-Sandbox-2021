@@ -28,9 +28,6 @@ const gatsbyConfig: GatsbyConfig = {
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: resolve(__dirname, '../cms/cms.js'),
-      },
     },
     {
       resolve: 'gatsby-plugin-sass',
