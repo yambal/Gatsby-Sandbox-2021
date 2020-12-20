@@ -6,7 +6,7 @@ import { Box } from '@xstyled/styled-components'
 import { ColorModeSwitcher } from '../organisms/ColorModeSwitcher'
 import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
-import { Container } from '../Layout/Container'
+import { Container } from '../Layout/Container/Container'
 
 /**
  * pageQuery のレスポンス
