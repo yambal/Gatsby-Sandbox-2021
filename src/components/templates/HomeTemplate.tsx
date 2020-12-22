@@ -7,6 +7,7 @@ import { ColorModeSwitcher } from '../organisms/ColorModeSwitcher'
 import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
+import { Button } from '../atoms/Button'
 
 /**
  * pageQuery のレスポンス
@@ -28,6 +29,8 @@ function HomeTemplate(props: HomeTemplateDataProps){
         <h1>{siteMetadata?.title}</h1>
         <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
         <Link to="/blog/test/">Test</Link>
+        <Button btn="primary">Button</Button>
+        <Button btn="success">Success</Button>
       </Container>
     </Box>
   )

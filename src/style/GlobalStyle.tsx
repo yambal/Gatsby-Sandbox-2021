@@ -1,4 +1,5 @@
-import { createGlobalStyle, DefaultTheme, GlobalStyleComponent, th } from '@xstyled/styled-components'
+import { createGlobalStyle } from '@xstyled/styled-components'
+import { th } from '@xstyled/system'
 import { normalize } from 'polished'
 
 export const GlobalStyle = createGlobalStyle`
@@ -13,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     font-family: sans-serif;
     line-height: 1.15;
-    -webkit-tap-highlight-color: rgba(black, 0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   body {
@@ -21,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: ${th.fontSize('base')};
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
+    color: ${th.fontSize('textBase')};
     text-align: left;
     background-color: #fff;
   }
