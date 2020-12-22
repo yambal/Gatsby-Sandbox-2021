@@ -1,11 +1,12 @@
 {
   "extends": [
     "stylelint-config-standard",
-    "stylelint-config-recommended-scss"
+    "stylelint-config-property-sort-order-smacss"
   ],
   "rules": {
-    "at-rule-no-vendor-prefix": true,
-    "property-no-vendor-prefix": true,
-    "value-no-vendor-prefix": true,
+    "font-family-no-missing-generic-family-keyword": null,
+    "no-descending-specificity": null,
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": ["function", "if", "each", "include", "mixin"]
+    }]
   }
-}
