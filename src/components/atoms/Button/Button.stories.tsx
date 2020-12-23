@@ -36,13 +36,13 @@ export default {
 export const Samples: Story<ButtonProps> = (args) => <>
   <Button btn="primary" {...args} >Button</Button>
   <Button btn="secondary">Secondary</Button>
-  <Button btn="success">Button</Button>
-  <Button btn="danger">Button</Button>
-  <Button btn="warning">Button</Button>
-  <Button btn="info">Button</Button>
-  <Button btn="light">Button</Button>
-  <Button btn="dark">Button</Button>
-  <Button btn="link">Button</Button>
+  <Button btn="success">Sucsess</Button>
+  <Button btn="danger">Danger</Button>
+  <Button btn="warning">Warning</Button>
+  <Button btn="info">Info</Button>
+  <Button btn="light">Light</Button>
+  <Button btn="dark">Dark</Button>
+  <Button btn="link">Link</Button>
 </>
 
 const Template: Story<ButtonProps> = (args) => <Button {...args}>Button</Button>
@@ -60,4 +60,34 @@ Secondary.args = {
 export const Success = Template.bind({});
 Success.args = {
   btn: 'success'
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  btn: 'danger'
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  btn: 'warning'
+};
+
+export const Info = Template.bind({});
+Info.args = {
+  btn: 'info'
+};
+
+export const Light = Template.bind({});
+Light.args = {
+  btn: 'light'
+};
+
+export const Dark = Template.bind({});
+Dark.args = {
+  btn: 'dark'
+};
+
+export const Link = Template.bind({});
+Link.args = {
+  btn: 'link'
 };

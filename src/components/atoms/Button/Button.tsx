@@ -12,14 +12,14 @@ const buttonVariant = variant({
   variants: {
     primary: css`
       color: ${th.color('btnPrimaryFg')};
-      background: ${th.color('btnPrimaryBg')};
-      border: 1px solid ${th.color('btnPrimaryBdr')};
+      background-color: ${th.color('btnPrimaryBg')};
+      border-color: ${th.color('btnPrimaryBdr')};
 
       &:hover,
       &:focus {
-        color: #fff;
+        color: ${th.color('btnPrimaryHFg')};
         background-color: ${th.color('btnPrimaryHBg')};
-        border: 1px solid ${th.color('btnPrimaryHBdr')};
+        border-color ${th.color('btnPrimaryHBdr')};
       }
       &:focus {
         box-shadow: ${th.shadow('btnPrimaryFocus')};
@@ -27,35 +27,126 @@ const buttonVariant = variant({
     `,
     secondary: css`
       color: ${th.color('btnSecondaryFg')};
-      background: ${th.color('btnSecondaryBg')};
+      background-color: ${th.color('btnSecondaryBg')};
+      border-color ${th.color('btnSecondaryBdr')};
+
+      &:hover,
+      &:focus {
+        color: ${th.color('btnSecondaryHFg')};
+        background-color: ${th.color('btnSecondaryHBg')};
+        border-color ${th.color('btnSecondaryHBdr')};
+      }
+      &:focus {
+        box-shadow: ${th.shadow('btnSecondaryFocus')};
+      }
     `,
     success: css`
       color: ${th.color('btnSuccessFg')};
-      background: ${th.color('btnSuccessBg')};
+      background-color: ${th.color('btnSuccessBg')};
+      border-color ${th.color('btnSuccessBdr')};
+
+      &:hover,
+      &:focus {
+        color: ${th.color('btnSuccessHFg')};
+        background-color: ${th.color('btnSuccessHBg')};
+        border-color ${th.color('btnSuccessHBdr')};
+      }
+      &:focus {
+        box-shadow: ${th.shadow('btnSuccessFocus')};
+      }
     `,
     danger: css`
       color: ${th.color('btnDangerFg')};
-      background: ${th.color('btnDangerBg')};
+      background-color: ${th.color('btnDangerBg')};
+      border-color ${th.color('btnDangerBdr')};
+
+      &:hover,
+      &:focus {
+        color: ${th.color('btnDangerHFg')};
+        background-color: ${th.color('btnDangerHBg')};
+        border-color ${th.color('btnDangerHBdr')};
+      }
+      &:focus {
+        box-shadow: ${th.shadow('btnDangerFocus')};
+      }
     `,
     warning: css`
       color: ${th.color('btnWarningFg')};
-      background: ${th.color('btnWarningBg')};
+      background-color: ${th.color('btnWarningBg')};
+      border-color ${th.color('btnWarningBdr')};
+
+      &:hover,
+      &:focus {
+        color: ${th.color('btnWarningHFg')};
+        background-color: ${th.color('btnWarningHBg')};
+        border-color ${th.color('btnWarningHBdr')};
+      }
+      &:focus {
+        box-shadow: ${th.shadow('btnWarningFocus')};
+      }
     `,
     info: css`
       color: ${th.color('btnInfoFg')};
-      background: ${th.color('btnInfoBg')};
+      background-color: ${th.color('btnInfoBg')};
+      border-color ${th.color('btnInfoBdr')};
+
+      &:hover,
+      &:focus {
+        color: ${th.color('btnInfoHFg')};
+        background-color: ${th.color('btnInfoHBg')};
+        border-color ${th.color('btnInfoHBdr')};
+      }
+      &:focus {
+        box-shadow: ${th.shadow('btnInfoFocus')};
+      }
     `,
     light: css`
       color: ${th.color('btnLightFg')};
-      background: ${th.color('btnLightBg')};
+      background-color: ${th.color('btnLightBg')};
+      border-color ${th.color('btnLightBdr')};
+
+      &:hover,
+      &:focus {
+        color: ${th.color('btnLightHFg')};
+        background-color: ${th.color('btnLightHBg')};
+        border-color ${th.color('btnLightHBdr')};
+      }
+      &:focus {
+        box-shadow: ${th.shadow('btnLightFocus')};
+      }
     `,
     dark: css`
       color: ${th.color('btnDarkFg')};
-      background: ${th.color('btnDarkBg')};
+      background-color: ${th.color('btnDarkBg')};
+      border-color ${th.color('btnDarkBdr')};
+
+      &:hover,
+      &:focus {
+        color: ${th.color('btnDarkHFg')};
+        background-color: ${th.color('btnDarkHBg')};
+        border-color ${th.color('btnDarkHBdr')};
+      }
+      &:focus {
+        box-shadow: ${th.shadow('btnDarkFocus')};
+      }
     `,
     link: css`
       color: ${th.color('btnLinkFg')};
-      background: ${th.color('btnLinkBg')};
+      background-color: ${th.color('btnLinkBg')};
+      border-color ${th.color('btnLinkBdr')};
+
+      &:hover {
+        color: ${th.color('btnLinkHFg')};
+        text-decoration: underline;
+      }
+      &:hover,
+      &:focus {
+        background-color: ${th.color('btnLinkHBg')};
+        border-color ${th.color('btnLinkHBdr')};
+      }
+      &:focus {
+        box-shadow: ${th.shadow('btnLinkFocus')};
+      }
     `,
   }
 })
@@ -72,6 +163,8 @@ export const Button = styled.buttonBox<ButtonProps>`
   padding: .375rem .75rem;
   font-size: 1rem;
   line-height: 1.5;
+  border-width: 1px;
+  border-style: solid;
   border-radius: .25rem;
   transition: ${th.transition('button')};
 
