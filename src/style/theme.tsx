@@ -78,7 +78,7 @@ export const theme: any = {
 
     /* Dark */
     btnDarkBg: colors.dark,
-    btnDarkHbg: darken(0.1, colors.dark),
+    btnDarkHBg: darken(0.1, colors.dark),
     btnDarkBdr: colors.transparent,
     btnDarkHBdr: darken(0.2, colors.dark),
     btnDarkFg: colors.white,
@@ -86,7 +86,7 @@ export const theme: any = {
 
     /* link */
     btnLinkBg: colors.transparent,
-    btnLinkHbg: colors.transparent,
+    btnLinkHBg: colors.transparent,
     btnLinkBdr: colors.transparent,
     btnLinkHBdr: colors.transparent,
     btnLinkFg: colors.blue,

@@ -3,19 +3,20 @@ import { variant, th } from '@xstyled/system'
 import { readableColor } from 'polished'
 
 export type ButtonProps = SystemProps & {
-  btn?: '' | 'primary' | 'success' | 'secondary' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link'
+  variant?: 'primary' | 'success' | 'secondary' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link'
+  size?: 'lg' | 'sm'
 }
 
 const buttonVariant = variant({
   default: 'primary',
-  prop: 'btn',
+  prop: 'variant',
   variants: {
     primary: css`
       color: ${th.color('btnPrimaryFg')};
       background-color: ${th.color('btnPrimaryBg')};
       border-color: ${th.color('btnPrimaryBdr')};
 
-      &:hover,
+      &:hover:not(:disabled),
       &:focus {
         color: ${th.color('btnPrimaryHFg')};
         background-color: ${th.color('btnPrimaryHBg')};
@@ -30,7 +31,7 @@ const buttonVariant = variant({
       background-color: ${th.color('btnSecondaryBg')};
       border-color ${th.color('btnSecondaryBdr')};
 
-      &:hover,
+      &:hover:not(:disabled),
       &:focus {
         color: ${th.color('btnSecondaryHFg')};
         background-color: ${th.color('btnSecondaryHBg')};
@@ -45,7 +46,7 @@ const buttonVariant = variant({
       background-color: ${th.color('btnSuccessBg')};
       border-color ${th.color('btnSuccessBdr')};
 
-      &:hover,
+      &:hover:not(:disabled),
       &:focus {
         color: ${th.color('btnSuccessHFg')};
         background-color: ${th.color('btnSuccessHBg')};
@@ -60,7 +61,7 @@ const buttonVariant = variant({
       background-color: ${th.color('btnDangerBg')};
       border-color ${th.color('btnDangerBdr')};
 
-      &:hover,
+      &:hover:not(:disabled),
       &:focus {
         color: ${th.color('btnDangerHFg')};
         background-color: ${th.color('btnDangerHBg')};
@@ -75,7 +76,7 @@ const buttonVariant = variant({
       background-color: ${th.color('btnWarningBg')};
       border-color ${th.color('btnWarningBdr')};
 
-      &:hover,
+      &:hover:not(:disabled),
       &:focus {
         color: ${th.color('btnWarningHFg')};
         background-color: ${th.color('btnWarningHBg')};
@@ -90,7 +91,7 @@ const buttonVariant = variant({
       background-color: ${th.color('btnInfoBg')};
       border-color ${th.color('btnInfoBdr')};
 
-      &:hover,
+      &:hover:not(:disabled),
       &:focus {
         color: ${th.color('btnInfoHFg')};
         background-color: ${th.color('btnInfoHBg')};
@@ -105,7 +106,7 @@ const buttonVariant = variant({
       background-color: ${th.color('btnLightBg')};
       border-color ${th.color('btnLightBdr')};
 
-      &:hover,
+      &:hover:not(:disabled),
       &:focus {
         color: ${th.color('btnLightHFg')};
         background-color: ${th.color('btnLightHBg')};
@@ -135,11 +136,11 @@ const buttonVariant = variant({
       background-color: ${th.color('btnLinkBg')};
       border-color ${th.color('btnLinkBdr')};
 
-      &:hover {
+      &:hover:not(:disabled) {
         color: ${th.color('btnLinkHFg')};
         text-decoration: underline;
       }
-      &:hover,
+      &:hover:not(:disabled),
       &:focus {
         background-color: ${th.color('btnLinkHBg')};
         border-color ${th.color('btnLinkHBdr')};
@@ -151,8 +152,31 @@ const buttonVariant = variant({
   }
 })
 
+const buttonSizeVariant = variant({
+  default: 'normal',
+  prop: 'size',
+  variants: {
+    normal: css`
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      border-radius: .25rem;
+    `,
+    lg: css`
+      padding: .5rem 1rem;
+      font-size: 1.25rem;
+      border-radius: .3rem;
+    `,
+    sm: css`
+      padding: .25rem .5rem;
+      font-size: .875rem;
+      border-radius: .2rem;
+    `
+  }
+})
+
 export const Button = styled.buttonBox<ButtonProps>`
   display: inline-block;
+  ${props => props.display == 'block' && 'width:100%;'}
   font-weight: 400;
   color: #212529;
   text-align: center;
@@ -160,17 +184,24 @@ export const Button = styled.buttonBox<ButtonProps>`
   user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
-  padding: .375rem .75rem;
-  font-size: 1rem;
   line-height: 1.5;
   border-width: 1px;
   border-style: solid;
-  border-radius: .25rem;
+  
   transition: ${th.transition('button')};
 
   &:focus {
     outline: 0;
   }
 
+  &:not(:disabled){
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: .65;
+  }
+
+  ${buttonSizeVariant}
   ${buttonVariant}
 `
