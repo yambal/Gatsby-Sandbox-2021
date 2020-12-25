@@ -8,6 +8,7 @@ import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
 import { Button } from '../atoms/Button'
+import { Icon } from '../atoms/Icon/Icon'
 
 /**
  * pageQuery のレスポンス
@@ -29,8 +30,9 @@ function HomeTemplate(props: HomeTemplateDataProps){
         <h1>{siteMetadata?.title}</h1>
         <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
         <Link to="/blog/test/">Test</Link>
-        <Button btn="primary">Button</Button>
-        <Button btn="success">Success</Button>
+        <Button variant="primary">Button</Button>
+        <Button variant="success">Success</Button>
+        <Icon prefix="fas" iconName="coffee" />
       </Container>
     </Box>
   )

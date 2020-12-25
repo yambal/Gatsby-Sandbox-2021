@@ -4,6 +4,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { Button, ButtonProps } from "./Button"
 import { Box } from '@xstyled/styled-components';
 import { Exsample } from '../Example/Example';
+import { Icon } from '../Icon/Icon';
 
 export default {
   title: 'Atom/Button',
@@ -96,6 +97,10 @@ export const Samples: Story<ButtonProps> = (args) =>
   <Exsample label="disabled">
     <Button variant="primary" disabled>Premary</Button>
     <Button variant="secondary" disabled>Secondary</Button>
+  </Exsample>
+  <Exsample label="Font Awesome Icon">
+    <Button variant="primary"><Icon prefix="fas" iconName="coffee" mr="0.5rem"/> Premary</Button>
+    <Button variant="primary" size="sm"><Icon prefix="fas" iconName="coffee" mr="0.5rem"/> Premary</Button>
   </Exsample>
 </Box>
 

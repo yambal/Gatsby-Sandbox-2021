@@ -5,6 +5,10 @@ import { GlobalStyle } from '../style/GlobalStyle'
 import { SiteMetadataProvider } from './SiteMetadataProvider'
 import { SEO } from '../components/SEO'
 
+import {config,  library } from '@fortawesome/fontawesome-svg-core'
+import { far } from '@fortawesome/free-regular-svg-icons'
+library.add(far)
+
 type AppProviderProps = {
   children: ReactNode
 }
