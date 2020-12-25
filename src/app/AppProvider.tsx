@@ -5,10 +5,13 @@ import { GlobalStyle } from '../style/GlobalStyle'
 import { SiteMetadataProvider } from './SiteMetadataProvider'
 import { SEO } from '../components/SEO'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
+import { config, library } from '@fortawesome/fontawesome-svg-core'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+config.autoAddCss = false;
 library.add(far, fas)
+
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 type AppProviderProps = {
   children: ReactNode
