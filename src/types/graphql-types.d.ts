@@ -3018,6 +3018,14 @@ export type Unnamed_1_Query = { allMarkdownRemark: { edges: Array<{ node: (
         & { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'template'>> }
       ) }> } };
 
+export type BlogIndexQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type BlogIndexQuery = { pageQueryData: { edges: Array<{ node: (
+        Pick<MarkdownRemark, 'id' | 'timeToRead'>
+        & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>>, fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>> }
+      ), next?: Maybe<{ frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>>, fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>> }>, previous?: Maybe<{ fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }> }> } };
+
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
 export type GatsbyImageSharpFixed_TracedSvgFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
