@@ -27,6 +27,14 @@ FarComment.args = {
   size: '6x'
 };
 
+export const Color = Template.bind({});
+Color.args = {
+  prefix: "far",
+  iconName: "comment",
+  size: '6x',
+  color: "red"
+};
+
 export const Error = Template.bind({});
 Error.args = {
   prefix: "far",

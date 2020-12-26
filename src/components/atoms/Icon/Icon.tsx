@@ -10,6 +10,8 @@ import {
 } from '@fortawesome/fontawesome-svg-core'
 import styled, { SystemProps } from '@xstyled/styled-components'
 
+
+
 type WrapperProps = SystemProps & {}
 const Wrapper = styled.spanBox<WrapperProps>``
 
@@ -18,6 +20,11 @@ export type IconProps = WrapperProps & {
   iconName: IconName
   size?: FontAwesomeIconProps['size']
   inverse?: FontAwesomeIconProps['inverse']
+  rotation?: FontAwesomeIconProps['rotation']
+  flip?: FontAwesomeIconProps['flip']
+  spin?: FontAwesomeIconProps['spin']
+  pulse?: FontAwesomeIconProps['pulse']
+  iconBorder?: FontAwesomeIconProps['border']
 }
 
 export function Icon({
@@ -25,6 +32,11 @@ export function Icon({
   iconName,
   size,
   inverse,
+  rotation,
+  flip,
+  spin,
+  pulse,
+  iconBorder,
   ...wrapperProps
 }: IconProps) {
   const def = React.useMemo(
@@ -40,7 +52,13 @@ export function Icon({
       {def ? <FontAwesomeIcon
         icon={def}
         size={size}
-        inverse={inverse}/> : `icon not found ["${prefix}", "${iconName}"]`}
+        inverse={inverse}
+        rotation={rotation}
+        flip={flip}
+        spin={spin}
+        pulse={pulse}
+        border={iconBorder}
+        /> : `icon not found ["${prefix}", "${iconName}"]`}
     </Wrapper>
   )
 } 
