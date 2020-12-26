@@ -14,7 +14,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 config.autoAddCss = false  // b. ランタイムCSS追加を無効化（Gatsby での遅延を解消する）　https://blog.uhy.ooo/entry/2020-05-10/gatsby-fontawesome-ssg/
 library.add(far, fas)
 
-import 'prismjs/themes/prism-tomorrow.css'
+import "prismjs/themes/prism.css"
 
 export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({ element, props }) => (
   <AppProvider>

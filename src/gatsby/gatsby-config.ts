@@ -56,18 +56,9 @@ const gatsbyConfig: GatsbyConfig = {
               name: 'pages',
             },
           },
+          `gatsby-remark-prismjs`,
         ]
       }
-    },
-    {
-      resolve: `gatsby-remark-prismjs`,
-      options: {
-        classPrefix: "language-",
-        inlineCodeMarker: null,
-        aliases: {},
-        showLineNumbers: true,
-        noInlineHighlight: false,
-      },
     },
     {
       resolve: 'gatsby-plugin-graphql-codegen',

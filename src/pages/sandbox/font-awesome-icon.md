@@ -53,7 +53,7 @@ yarn add @fortawesome/react-fontawesome
 
 #### 個別使用
 いちばんコンパクトな組み込みは、以下のようになるだろう
-```Icon.tsx
+```js
 import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -71,7 +71,7 @@ export function Icon() {
 グローバル使用には、あらかじめグローバルでライブラリを読み込んでおくという手順が加わる。
 
 具体的には以下のようなソースを初期化時に読み込まれるようにします
-```
+```tsx
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -81,7 +81,7 @@ library.add(far, fas)
 
 上記のコードがうまく働くなら、アイコンの呼び出しは以下のようになります。
 
-```
+```tsx
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
 
 ...
@@ -100,7 +100,7 @@ Gatsby とてコードがコンパクトであることに越したことは無�
 例えば、読み込み時に一瞬アイコンが巨大表示される、などです。
 
 対処コードは以下のようになります。
-```
+```tsx
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 import { far } from '@fortawesome/free-regular-svg-icons'
