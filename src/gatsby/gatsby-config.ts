@@ -60,6 +60,16 @@ const gatsbyConfig: GatsbyConfig = {
       }
     },
     {
+      resolve: `gatsby-remark-prismjs`,
+      options: {
+        classPrefix: "language-",
+        inlineCodeMarker: null,
+        aliases: {},
+        showLineNumbers: true,
+        noInlineHighlight: false,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-graphql-codegen',
       options: {
         fileName: `src/types/graphql-types.d.ts`
