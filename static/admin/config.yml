@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: sandbox
 
 media_folder: static/images/uploaded
 public_folder: /images/uploaded
