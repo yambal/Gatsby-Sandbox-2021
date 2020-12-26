@@ -2,6 +2,7 @@
 title: OKR運用案
 template: BlogTemplate
 thumbnail: /images/uploaded/zint.jpg
+publish_date: 2020-12-27
 ---
 
 ## 2021年1QのOKRの要件
