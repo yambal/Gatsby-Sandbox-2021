@@ -3000,6 +3000,16 @@ export type HomeTemplateQuery = { pageQueryData?: Maybe<(
     & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
   )> };
 
+export type SandboxTemplateQueryVariables = Exact<{
+  id?: Maybe<Scalars['String']>;
+}>;
+
+
+export type SandboxTemplateQuery = { pageQueryData?: Maybe<(
+    Pick<MarkdownRemark, 'rawMarkdownBody'>
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
+  )> };
+
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
