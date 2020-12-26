@@ -39,9 +39,6 @@ publish_date: 2020-12-27
 
 下図が、作成されるOKRのイメージです。上部にMusubuプロダクトOKRが記載され、KR達成のために関連付けられたプロジェクトが記載されています。下部には、プロダクトOKRとは関連しないものの、開発部門として実施すべきアクションがサイドプロジェクトとして記載されます。
 
-![スクリーンショット 2020-12-25 9.45.48.png](https://image.docbase.io/uploads/3b5d77bb-f8d5-4797-9c7b-401392ef538b.png =500x)
-
-https://docs.google.com/presentation/d/1-nTWDJJxFyr0SiOPDERVUuEbbGW1pziV2-JPiutjzn0/edit#slide=id.p
 
 上記で示したプロジェクトの概要を下表に示します。特に、OKRにひもづくプロジェクトとサイドプロジェクトでは、目標とする達成度が異なることに注意してください。
 
@@ -56,10 +53,6 @@ https://docs.google.com/presentation/d/1-nTWDJJxFyr0SiOPDERVUuEbbGW1pziV2-JPiutj
 # OKRの運用方法
 ## 運用のイメージ図
 OKRの運用方法の全体図を以下に示します。説明は後述します。
-
-![スクリーンショット 2020-12-25 10.00.34.png](https://image.docbase.io/uploads/4023057a-a1d1-4730-9e95-d6763131c8f7.png =600x)
-
-https://docs.google.com/presentation/d/1-nTWDJJxFyr0SiOPDERVUuEbbGW1pziV2-JPiutjzn0/edit#slide=id.gb20bc0b00e_0_1
 
 ## OKR→プログラム計画→メンバーの週次目標
 

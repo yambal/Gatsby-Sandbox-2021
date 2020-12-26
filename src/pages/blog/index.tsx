@@ -6,10 +6,6 @@ import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../../components/SEO'
 import { Container } from '../../components/Layout/Container/Container'
 
-/**
- * pageQuery のレスポンス
- * gatsby-plugin-graphql-codegen で types\graphql-types.d.ts に自動追記される型を参照する
- **/
 type BlogIndexDataProps = PageProps & {
   data: BlogIndexQuery
 }
@@ -25,10 +21,11 @@ function BlogIndex(props: BlogIndexDataProps){
         <Box as="h1">Blog Index</Box>
         {pageQueryData.edges.map(
           (edge) => {
-            if (edge.node.fields) {
+            if (edge.node.fields?.slug && edge.node.frontmatter?.title) {
               return (
                 <Box>
                   <Link to={edge.node.fields.slug}>{edge.node.frontmatter.title}</Link>
+                  {edge.node.frontmatter.publish_date}
                 </Box>
               )
             }
@@ -39,19 +36,14 @@ function BlogIndex(props: BlogIndexDataProps){
   )
 }
 
-/**
- * Node の id を受け取り、詳細データをリクエストする
- * $id は createPage(gatsby-node.js) で挿入された context である
- * 
- * 本当は useStaticQuery で組んだ方がスマートだろうけど、変数が使えない
- */
 export const pageQuery = graphql`
   query BlogIndex {
-    pageQueryData: allMarkdownRemark(filter: {frontmatter: {template: {eq: "BlogTemplate"}}}) {
+    pageQueryData:   allMarkdownRemark(filter: {frontmatter: {template: {eq: "BlogTemplate"}}}, sort: {fields: frontmatter___publish_date, order: DESC}) {
       edges {
         node {
           frontmatter {
             title
+            publish_date(formatString: "YYYY-MM-DD")
           }
           id
           fields {
@@ -62,6 +54,7 @@ export const pageQuery = graphql`
         next {
           frontmatter {
             title
+            publish_date(formatString: "YYYY-MM-DD")
           }
           fields {
             slug
@@ -73,6 +66,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            publish_date(formatString: "YYYY-MM-DD")
           }
         }
       }

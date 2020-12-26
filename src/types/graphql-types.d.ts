@@ -709,6 +709,7 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___title'
   | 'childMarkdownRemark___frontmatter___template'
   | 'childMarkdownRemark___frontmatter___thumbnail'
+  | 'childMarkdownRemark___frontmatter___publish_date'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -1522,6 +1523,7 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___title'
   | 'frontmatter___template'
   | 'frontmatter___thumbnail'
+  | 'frontmatter___publish_date'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1651,12 +1653,22 @@ export type MarkdownRemarkFrontmatter = {
   title?: Maybe<Scalars['String']>;
   template?: Maybe<Scalars['String']>;
   thumbnail?: Maybe<Scalars['String']>;
+  publish_date?: Maybe<Scalars['Date']>;
+};
+
+
+export type MarkdownRemarkFrontmatterPublish_DateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
 };
 
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   template?: Maybe<StringQueryOperatorInput>;
   thumbnail?: Maybe<StringQueryOperatorInput>;
+  publish_date?: Maybe<DateQueryOperatorInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -3023,8 +3035,8 @@ export type BlogIndexQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type BlogIndexQuery = { pageQueryData: { edges: Array<{ node: (
         Pick<MarkdownRemark, 'id' | 'timeToRead'>
-        & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>>, fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>> }
-      ), next?: Maybe<{ frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>>, fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>> }>, previous?: Maybe<{ fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }> }> } };
+        & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'publish_date'>>, fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>> }
+      ), next?: Maybe<{ frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'publish_date'>>, fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>> }>, previous?: Maybe<{ fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'publish_date'>> }> }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
