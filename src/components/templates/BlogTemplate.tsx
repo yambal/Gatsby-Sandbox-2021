@@ -3,10 +3,10 @@ import { graphql, PageProps } from "gatsby"
 import { BlogTemplateQuery } from "../../types/graphql-types"
 import { MarkdownRenderer } from '../atoms/Renderer/MarkdownRenderer'
 import { Box } from '@xstyled/styled-components'
-import { ColorModeSwitcher } from '../organisms/ColorModeSwitcher'
 import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
+import { Navbar } from '../atoms/Navbar/Navbar'
 
 /**
  * pageQuery のレスポンス
@@ -21,17 +21,20 @@ function BlogTemplate(props: BlogTemplateDataProps){
   const siteMetadata = useSiteMetadata()
 
   return (
-    <Box bg="bg">
-      <SEO {...props} pageTitle={pageQueryData?.frontmatter?.title} pageKeywords={['テスト', '実験']}/>
-      <Container>
-        <Box as="header">
-          <h1>{pageQueryData?.frontmatter?.title}</h1>
-        </Box>
-        <Box as="article">
-          <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
-        </Box>
-      </Container>
-    </Box>
+    <>
+      <Navbar bg="primary" color="white">Sandbox</Navbar>
+      <Box bg="bg">
+        <SEO {...props} pageTitle={pageQueryData?.frontmatter?.title} pageKeywords={['テスト', '実験']}/>
+        <Container>
+          <Box as="header">
+            <h1>{pageQueryData?.frontmatter?.title}</h1>
+          </Box>
+          <Box as="article">
+            <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
+          </Box>
+        </Container>
+      </Box>
+    </>
   )
 }
 
