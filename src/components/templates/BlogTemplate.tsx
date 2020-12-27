@@ -23,11 +23,13 @@ function BlogTemplate(props: BlogTemplateDataProps){
   return (
     <Box bg="bg">
       <SEO {...props} pageTitle={pageQueryData?.frontmatter?.title} pageKeywords={['テスト', '実験']}/>
-      <ColorModeSwitcher />
       <Container>
-        <h1>{pageQueryData?.frontmatter?.title}</h1>
-        <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
-        <pre>{JSON.stringify(siteMetadata, null, 2)}</pre>
+        <Box as="header">
+          <h1>{pageQueryData?.frontmatter?.title}</h1>
+        </Box>
+        <Box as="article">
+          <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
+        </Box>
       </Container>
     </Box>
   )

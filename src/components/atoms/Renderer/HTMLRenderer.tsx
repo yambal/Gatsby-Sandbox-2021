@@ -7,8 +7,9 @@ type HTMLRendererProps = SystemProps & {
 }
 
 const Wrapper = styled.divBox`
-  h2 {
-    color: red;
+  code {
+    max-width: 100%;
+    overflow: auto; 
   }
 `
 
