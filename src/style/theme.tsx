@@ -20,6 +20,9 @@ export const theme: any = {
   },
 
   colors: {
+    /* basic */
+    primary: colors.primary,
+
     /* premary */
     btnPrimaryBg: colors.primary,
     btnPrimaryHBg: darken(0.1, colors.primary), 

@@ -93,12 +93,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   td, th {
-      padding: .75rem;
-      vertical-align: top;
-      border-top: 1px solid #dee2e6;
-  }
-
-  td, th {
     padding: .75rem;
     vertical-align: top;
     border-top: 1px solid #dee2e6;
