@@ -65,4 +65,10 @@ export const GlobalStyle = createGlobalStyle`
   h6 {
     font-size: ${th.fontSize('h6')};
   }
+
+  /* blockquote */
+  blockquote {
+    margin: 0 0 1rem 0
+    font-size: 1.25rem;
+  }
 `
