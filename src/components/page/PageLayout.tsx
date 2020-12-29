@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled, { Box, th } from "@xstyled/styled-components"
+import styled, { th } from "@xstyled/styled-components"
 import { Navbar } from '../atoms/Navbar/Navbar'
 import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { Link, PageProps } from 'gatsby'
@@ -7,7 +7,7 @@ import { Link, PageProps } from 'gatsby'
 /**
  * スタイリング
  **/
-const Wrapper = styled(Box)`
+const Wrapper = styled.divBox`
   ${/*sc-selector*/Navbar} {
     background-color: ${th.color('navbarBg')};
     color: ${th.color('navbarFg')};

@@ -6,7 +6,7 @@ type HTMLRendererProps = SystemProps & {
   html: string
 }
 
-const Wrapper = styled(Box)`
+const Wrapper = styled.divBox`
   code {
     max-width: 100%;
     overflow: auto; 
