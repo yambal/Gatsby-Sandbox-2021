@@ -26,6 +26,7 @@ const gatsbyConfig: GatsbyConfig = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-svgr',
     'gatsby-transformer-sharp',
+    `gatsby-plugin-styled-components`,
     {
       resolve: 'gatsby-plugin-netlify-cms',
     },
