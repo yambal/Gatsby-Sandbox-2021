@@ -70,7 +70,11 @@ export function PageLayout({ children, brand, menus, location }: PageLayputProps
   /** メニューノードを返す */
   const Menu = React.useMemo(
     () => {
-      const defMenu: tMenu[] = [{label: 'ホーム', url: '/'}]
+      const defMenu: tMenu[] = [
+        {label: 'ホーム', url: '/'},
+        {label: 'ブログ', url: '/blog'}
+      ]
+
       const mMenu = menus ? defMenu.concat(menus) : defMenu
       return(
         <NabMenu>

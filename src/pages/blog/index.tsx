@@ -5,17 +5,18 @@ import { Box } from '@xstyled/styled-components'
 import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../../components/SEO'
 import { Container } from '../../components/Layout/Container/Container'
+import { PageLayout } from '../../components/page/PageLayout'
 
 type BlogIndexDataProps = PageProps & {
   data: BlogIndexQuery
 }
 
 function BlogIndex(props: BlogIndexDataProps){
-  const { data: { pageQueryData } } = props
+  const { data: { pageQueryData }, location } = props
   const siteMetadata = useSiteMetadata()
 
   return (
-    <Box bg="bg">
+    <PageLayout location={location}>
       <SEO {...props} pageTitle="Blog Indexe" pageKeywords={['テスト', '実験']}/>
       <Container>
         <Box as="h1">Blog Index</Box>
@@ -32,7 +33,7 @@ function BlogIndex(props: BlogIndexDataProps){
           }
         )}
       </Container>
-    </Box>
+    </PageLayout>
   )
 }
 
