@@ -7,6 +7,7 @@ import { ColorModeSwitcher } from '../organisms/ColorModeSwitcher'
 import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
+import { PageLayout } from '../page/PageLayout'
 
 /**
  * pageQuery のレスポンス
@@ -17,11 +18,11 @@ type BlogTemplateDataProps = PageProps & {
 }
 
 function BlogTemplate(props: BlogTemplateDataProps){
-  const { data: { pageQueryData } } = props
+  const { data: { pageQueryData }, location } = props
   const siteMetadata = useSiteMetadata()
 
   return (
-    <Box bg="bg">
+    <PageLayout location={location}>
       <SEO {...props} pageTitle={pageQueryData?.frontmatter?.title} pageKeywords={['テスト', '実験']}/>
       <ColorModeSwitcher />
       <Container>
@@ -29,7 +30,7 @@ function BlogTemplate(props: BlogTemplateDataProps){
         <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
         <pre>{JSON.stringify(siteMetadata, null, 2)}</pre>
       </Container>
-    </Box>
+    </PageLayout>
   )
 }
 

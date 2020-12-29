@@ -65,4 +65,15 @@ export const GlobalStyle = createGlobalStyle`
   h6 {
     font-size: ${th.fontSize('h6')};
   }
+
+  a {
+    color: ${th.color('link')};
+    text-decoration: none;
+    background-color: transparent;
+
+    &:hover {
+      color: ${th.color('linkH')};
+      text-decoration: underline;
+    }
+  }
 `
