@@ -26,7 +26,6 @@ function HomeTemplate(props: HomeTemplateDataProps){
   return (
     <PageLayout location={location}>
       <SEO {...props}/>
-      <ColorModeSwitcher />
       <Container>
         <h1>{siteMetadata?.title}</h1>
         <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
