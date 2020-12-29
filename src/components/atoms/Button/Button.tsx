@@ -1,4 +1,4 @@
-import styled, { css, SystemProps } from '@xstyled/styled-components'
+import styled, { Box, css, SystemProps } from '@xstyled/styled-components'
 import { variant, th } from '@xstyled/system'
 import { readableColor } from 'polished'
 
@@ -174,7 +174,7 @@ const buttonSizeVariant = variant({
   }
 })
 
-export const Button = styled.buttonBox<ButtonProps>`
+export const Button = (styled(Box).attrs({as: 'button'}) as typeof styled.buttonBox)<ButtonProps>`
   display: inline-block;
   ${props => props.display == 'block' && 'width:100%;'}
   font-weight: 400;
