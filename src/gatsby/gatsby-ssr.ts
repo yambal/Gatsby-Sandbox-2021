@@ -1,9 +1,8 @@
-import React from 'react'
-import { getColorModeInitScriptElement } from '@xstyled/styled-components'
+/**
+ * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/ssr-apis/
 
-export function onRenderBody({ setPreBodyComponents }: any) {
-  setPreBodyComponents([getColorModeInitScriptElement()])
-}
-
+*/
 export { wrapPageElement } from './api/wrapPageElement';
 

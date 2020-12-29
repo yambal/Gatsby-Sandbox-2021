@@ -1,6 +1,6 @@
 import styled, { Box, SystemProps } from "@xstyled/styled-components";
 
-export const Navbar = (styled(Box).attrs({as: 'nav'}) as typeof styled.navBox)<SystemProps>`
+export const Navbar = (styled(Box).attrs({as: 'nav'}) as typeof styled.divBox)<SystemProps>`
   position: relative;
   display: flex;
   flex-wrap: wrap;

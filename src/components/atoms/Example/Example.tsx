@@ -5,13 +5,13 @@ import { SystemProps } from '@xstyled/system'
 type WrapperProps = SystemProps &{
   label?: string
 }
-export const Wrapper = styled.divBox<WrapperProps>`
+export const Wrapper = styled(Box)<WrapperProps>`
   padding: 0;
   border: solid #f8f9fa;
   border-width: 4px;
   margin-bottom: 1rem;
 `
-export const Label = styled.divBox`
+export const Label = styled(Box)`
   background-color: #f8f9fa;
   padding-top: calc(0.5rem-4px);
   padding-left: 0.5rem;
