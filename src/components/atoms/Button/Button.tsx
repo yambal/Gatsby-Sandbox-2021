@@ -174,7 +174,7 @@ const buttonSizeVariant = variant({
   }
 })
 
-export const Button = (styled(Box).attrs({as: 'button'}) as typeof styled.divBox)<ButtonProps>`
+export const Button = (styled(Box).attrs({as: 'button'}) as typeof styled.buttonBox)<ButtonProps>`
   display: inline-block;
   ${props => props.display == 'block' && 'width:100%;'}
   font-weight: 400;
