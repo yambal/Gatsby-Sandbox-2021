@@ -9,6 +9,7 @@ import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
 import { Button } from '../atoms/Button'
 import { Icon } from '../atoms/Icon/Icon'
+import { PageLayout } from '../page/PageLayout'
 
 /**
  * pageQuery のレスポンス
@@ -19,11 +20,11 @@ type HomeTemplateDataProps = PageProps & {
 }
 
 function HomeTemplate(props: HomeTemplateDataProps){
-  const { data: { pageQueryData } } = props
+  const { data: { pageQueryData }, location } = props
   const siteMetadata = useSiteMetadata()
 
   return (
-    <Box bg="bg">
+    <PageLayout location={location}>
       <SEO {...props}/>
       <ColorModeSwitcher />
       <Container>
@@ -34,7 +35,7 @@ function HomeTemplate(props: HomeTemplateDataProps){
         <Button variant="success">Success</Button>
         <Icon prefix="fas" iconName="coffee" />
       </Container>
-    </Box>
+    </PageLayout>
   )
 }
 

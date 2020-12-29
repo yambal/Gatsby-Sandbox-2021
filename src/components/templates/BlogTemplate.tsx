@@ -2,11 +2,10 @@ import React from 'react'
 import { graphql, PageProps } from "gatsby"
 import { BlogTemplateQuery } from "../../types/graphql-types"
 import { MarkdownRenderer } from '../atoms/Renderer/MarkdownRenderer'
-import { Box } from '@xstyled/styled-components'
 import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
-import { Navbar } from '../atoms/Navbar/Navbar'
+import { PageLayout } from '../page/PageLayout'
 
 /**
  * pageQuery のレスポンス
@@ -17,24 +16,18 @@ type BlogTemplateDataProps = PageProps & {
 }
 
 function BlogTemplate(props: BlogTemplateDataProps){
-  const { data: { pageQueryData } } = props
+  const { data: { pageQueryData }, location } = props
   const siteMetadata = useSiteMetadata()
 
   return (
-    <>
-      <Navbar bg="primary" color="white">Sandbox</Navbar>
-      <Box bg="bg">
-        <SEO {...props} pageTitle={pageQueryData?.frontmatter?.title} pageKeywords={['テスト', '実験']}/>
-        <Container>
-          <Box as="header">
-            <h1>{pageQueryData?.frontmatter?.title}</h1>
-          </Box>
-          <Box as="article">
-            <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
-          </Box>
-        </Container>
-      </Box>
-    </>
+    <PageLayout location={location}>
+      <SEO {...props} pageTitle={pageQueryData?.frontmatter?.title} pageKeywords={['テスト', '実験']}/>
+      <Container>
+        <h1>{pageQueryData?.frontmatter?.title}</h1>
+        <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
+        <pre>{JSON.stringify(siteMetadata, null, 2)}</pre>
+      </Container>
+    </PageLayout>
   )
 }
 

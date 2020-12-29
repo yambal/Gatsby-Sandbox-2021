@@ -104,11 +104,20 @@ export const GlobalStyle = createGlobalStyle`
     text-align: inherit;
   }
 
-
-
   /* blockquote */
   blockquote {
     margin: 0 0 1rem 0
     font-size: 1.25rem;
+  }
+  
+  a {
+    color: ${th.color('link')};
+    text-decoration: none;
+    background-color: transparent;
+
+    &:hover {
+      color: ${th.color('linkH')};
+      text-decoration: underline;
+    }
   }
 `

@@ -9,6 +9,7 @@ import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
 import { Button } from '../atoms/Button'
 import { Icon } from '../atoms/Icon/Icon'
+import { PageLayout } from '../page/PageLayout'
 
 /**
  * pageQuery のレスポンス
@@ -19,19 +20,18 @@ type SandboxTemplateDataProps = PageProps & {
 }
 
 function SandboxTemplate(props: SandboxTemplateDataProps){
-  const { data: { pageQueryData } } = props
+  const { data: { pageQueryData }, location } = props
   const siteMetadata = useSiteMetadata()
 
   return (
-    <Box bg="bg">
+    <PageLayout location={location}>
       <SEO {...props}/>
-      <ColorModeSwitcher />
       <Container>
         <h1>{siteMetadata?.title}</h1>
         <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
         <Icon prefix="far" iconName="comment" />
       </Container>
-    </Box>
+    </PageLayout>
   )
 }
 

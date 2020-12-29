@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 import { colors } from "./colors"
-import { readableColor, darken, transparentize } from "polished";
+import { readableColor, darken, transparentize, mix } from "polished";
 
 export const theme: any = {
   //defaultColorModeName: 'new',
@@ -20,8 +20,9 @@ export const theme: any = {
   },
 
   colors: {
-    /* basic */
     primary: colors.primary,
+    link: colors.blue,
+    linkH: darken(0.2, colors.blue),
 
     /* premary */
     btnPrimaryBg: colors.primary,
@@ -94,6 +95,11 @@ export const theme: any = {
     btnLinkHBdr: colors.transparent,
     btnLinkFg: colors.blue,
     btnLinkHFg: darken(0.2, colors.blue),
+
+    /* nabvar */
+    navbarBg: colors.primary,
+    navbarFg: mix(0.4, colors.primary, colors.white),
+    navbarHFg: colors.white,
 
     modes: {
       dark: {
