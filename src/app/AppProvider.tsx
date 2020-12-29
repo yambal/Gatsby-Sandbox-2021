@@ -14,9 +14,7 @@ export function AppProvider({ children }: AppProviderProps) {
     <SiteMetadataProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <ColorModeProvider>
-          {children}
-        </ColorModeProvider>
+        {children}
       </ThemeProvider>
     </SiteMetadataProvider>
   )
