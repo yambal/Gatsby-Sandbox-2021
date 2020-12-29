@@ -72,7 +72,8 @@ export function PageLayout({ children, brand, menus, location }: PageLayputProps
     () => {
       const defMenu: tMenu[] = [
         {label: 'ホーム', url: '/'},
-        {label: 'ブログ', url: '/blog'}
+        {label: 'ブログ', url: '/blog'},
+        {label: '砂場', url: '/sandbox'}
       ]
 
       const mMenu = menus ? defMenu.concat(menus) : defMenu
