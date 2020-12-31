@@ -7,7 +7,8 @@ import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
 import { PageLayout } from '../page/PageLayout'
 import { Box } from '@xstyled/styled-components'
-
+import { findFluidMedia } from '../../app/MediaProvider'
+import Img from "gatsby-image"
 /**
  * pageQuery のレスポンス
  * gatsby-plugin-graphql-codegen で types\graphql-types.d.ts に自動追記される型を参照する
@@ -22,6 +23,8 @@ function Etc2Template(props: Etc2TemplateDataProps){
   const { section: sections } = frontmatter
   const siteMetadata = useSiteMetadata()
 
+  
+
   return (
     <PageLayout location={location}>
       <SEO {...props} pageTitle={pageQueryData?.frontmatter?.title} pageKeywords={['テスト', '実験']}/>
@@ -29,11 +32,14 @@ function Etc2Template(props: Etc2TemplateDataProps){
         <h1>{pageQueryData?.frontmatter?.title}</h1>
         {sections && sections.map(
           (section, index) => {
+            const fluid = findFluidMedia(section.image)
             return (
               <Box key={`section-${index}`}>
                 <h2>{section.title}</h2>
                 <MarkdownRenderer rawMarkdown={section.text} isPreview={false} />
                 {section.image}
+                <pre>{JSON.stringify(fluid)}</pre>
+                {fluid && <Img fluid={fluid} alt="" />}
               </Box>
             )
           }
