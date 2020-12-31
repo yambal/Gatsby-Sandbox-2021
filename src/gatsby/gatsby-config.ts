@@ -39,6 +39,11 @@ const gatsbyConfig: GatsbyConfig = {
         },
       },
     },
+      /* gatsby-source-filesystem
+       * Filenodeをローカルファイルから作成する。
+       * 種々のファイル形式に対応した"transformer"というプラグインがそれぞれ用意されている。
+      */
+/*
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -46,6 +51,18 @@ const gatsbyConfig: GatsbyConfig = {
         name: 'assets',
       },
     },
+*/
+    {
+      /* /src/media 配下のファイルを node に media で 登録する */
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `media`, // インスタンス名
+        path: resolve(__dirname, '../media'),
+      },
+    },
+    /**
+     * Remarkを使用してMarkdownファイルを解析します。
+     */
     {
       resolve: 'gatsby-transformer-remark',
       options: {

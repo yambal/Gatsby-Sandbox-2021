@@ -3,7 +3,7 @@ import { ThemeProvider, ColorModeProvider } from '@xstyled/styled-components'
 import { theme } from '../style/theme'
 import { GlobalStyle } from '../style/GlobalStyle'
 import { SiteMetadataProvider } from './SiteMetadataProvider'
-import { SEO } from '../components/SEO'
+import { MediaProvider } from './MediaProvider'
 
 type AppProviderProps = {
   children: ReactNode
@@ -12,12 +12,14 @@ type AppProviderProps = {
 export function AppProvider({ children }: AppProviderProps) {
   return (
     <SiteMetadataProvider>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <ColorModeProvider>
-          {children}
-        </ColorModeProvider>
-      </ThemeProvider>
+      <MediaProvider>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <ColorModeProvider>
+            {children}
+          </ColorModeProvider>
+        </ThemeProvider>
+      </MediaProvider>
     </SiteMetadataProvider>
   )
 }

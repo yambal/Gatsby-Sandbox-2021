@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: sandbox
 
-media_folder: static/images/uploaded
-public_folder: /images/uploaded
+media_folder: src/media # アップロードファイルの保存場所
+public_folder: /media
 
 collections:
   - name: "home"
