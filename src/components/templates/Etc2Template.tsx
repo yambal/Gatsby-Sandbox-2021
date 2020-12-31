@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, PageProps } from "gatsby"
-import { BlogTemplateQuery } from "../../types/graphql-types"
+import { Etc2TemplateQuery } from "../../types/graphql-types"
 import { MarkdownRenderer } from '../atoms/Renderer/MarkdownRenderer'
 import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
@@ -11,11 +11,11 @@ import { PageLayout } from '../page/PageLayout'
  * pageQuery のレスポンス
  * gatsby-plugin-graphql-codegen で types\graphql-types.d.ts に自動追記される型を参照する
  **/
-type BlogTemplateDataProps = PageProps & {
-  data: BlogTemplateQuery
+type Etc2TemplateDataProps = PageProps & {
+  data: Etc2TemplateQuery
 }
 
-function BlogTemplate(props: BlogTemplateDataProps){
+function Etc2Template(props: Etc2TemplateDataProps){
   const { data: { pageQueryData }, location } = props
   const siteMetadata = useSiteMetadata()
 
@@ -38,7 +38,7 @@ function BlogTemplate(props: BlogTemplateDataProps){
  * 本当は useStaticQuery で組んだ方がスマートだろうけど、変数が使えない
  */
 export const pageQuery = graphql`
-  query BlogTemplate($id: String) {
+  query Etc2Template($id: String) {
     pageQueryData: markdownRemark(id: {eq: $id}) {
       rawMarkdownBody
       frontmatter {
@@ -48,4 +48,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default BlogTemplate
+export default Etc2Template

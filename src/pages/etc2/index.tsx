@@ -1,17 +1,17 @@
 import React from 'react'
 import { graphql, Link, PageProps } from "gatsby"
-import { ETC2IndexQuery } from "../../types/graphql-types"
+import { Etc2IndexQuery } from "../../types/graphql-types"
 import { Box } from '@xstyled/styled-components'
 import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../../components/SEO'
 import { Container } from '../../components/Layout/Container/Container'
 import { PageLayout } from '../../components/page/PageLayout'
 
-type ETC2IndexDataProps = PageProps & {
-  data: ETC2IndexQuery
+type Etc2IndexDataProps = PageProps & {
+  data: Etc2IndexQuery
 }
 
-function ETC2Index(props: ETC2IndexDataProps){
+function Etc2Index(props: Etc2IndexDataProps){
   const { data: { pageQueryData }, location } = props
   const siteMetadata = useSiteMetadata()
 
@@ -38,7 +38,7 @@ function ETC2Index(props: ETC2IndexDataProps){
 }
 
 export const pageQuery = graphql`
-  query ETC2Index {
+  query Etc2Index {
     pageQueryData:   allMarkdownRemark(filter: {frontmatter: {template: {eq: "ETC2IndexTemplate"}}}, sort: {fields: frontmatter___publish_date, order: DESC}) {
       edges {
         node {
@@ -75,4 +75,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default ETC2Index
+export default Etc2Index
