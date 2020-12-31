@@ -35,8 +35,13 @@ export const MediaProvider: React.FC = (props) => {
         totalCount
         edges {
           node {
-            sourceInstanceName,
+            sourceInstanceName
             relativePath
+            childImageSharp {
+              fluid(maxWidth: 1280) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }

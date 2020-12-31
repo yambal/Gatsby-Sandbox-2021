@@ -36,7 +36,7 @@ function HomeTemplate(props: HomeTemplateDataProps){
         <Button variant="primary">Button</Button>
         <Button variant="success">Success</Button>
         <Icon prefix="fas" iconName="coffee" />
-        <pre>{JSON.stringify(medias)}</pre>
+        <pre>{JSON.stringify(medias, null, 2)}</pre>
       </Container>
     </PageLayout>
   )
