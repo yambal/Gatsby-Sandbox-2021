@@ -6,6 +6,8 @@ import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
 import { PageLayout } from '../page/PageLayout'
+import { useMedia, findFluidMedia } from '../../app/MediaProvider'
+import Img from "gatsby-image"
 
 /**
  * pageQuery のレスポンス
@@ -18,14 +20,17 @@ type BlogTemplateDataProps = PageProps & {
 function BlogTemplate(props: BlogTemplateDataProps){
   const { data: { pageQueryData }, location } = props
   const siteMetadata = useSiteMetadata()
+  const fluid = findFluidMedia(pageQueryData?.frontmatter?.thumbnail)
 
   return (
     <PageLayout location={location}>
       <SEO {...props} pageTitle={pageQueryData?.frontmatter?.title} pageKeywords={['テスト', '実験']}/>
       <Container>
+        Img {fluid && <Img fluid={fluid} alt="" />}
         <h1>{pageQueryData?.frontmatter?.title}</h1>
         <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
-        <pre>{JSON.stringify(siteMetadata, null, 2)}</pre>
+        <pre>{JSON.stringify(pageQueryData, null, 2)}</pre>
+        <pre>{pageQueryData?.frontmatter?.thumbnail}: {JSON.stringify(fluid, null, 2)}</pre>
       </Container>
     </PageLayout>
   )
@@ -42,7 +47,8 @@ export const pageQuery = graphql`
     pageQueryData: markdownRemark(id: {eq: $id}) {
       rawMarkdownBody
       frontmatter {
-        title
+        title,
+        thumbnail
       }
     }
   }

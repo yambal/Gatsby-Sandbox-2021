@@ -2563,6 +2563,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___classPrefix'
+  | 'pluginCreator___pluginOptions___showLineNumbers'
+  | 'pluginCreator___pluginOptions___noInlineHighlight'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___configDir'
   | 'pluginCreator___pluginOptions___pathCheck'
@@ -2768,6 +2771,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
+  | 'pluginOptions___classPrefix'
+  | 'pluginOptions___showLineNumbers'
+  | 'pluginOptions___noInlineHighlight'
   | 'pluginOptions___fileName'
   | 'pluginOptions___configDir'
   | 'pluginOptions___pathCheck'
@@ -2891,6 +2897,9 @@ export type SitePluginPluginOptions = {
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
+  classPrefix?: Maybe<Scalars['String']>;
+  showLineNumbers?: Maybe<Scalars['Boolean']>;
+  noInlineHighlight?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
   configDir?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
@@ -2913,6 +2922,9 @@ export type SitePluginPluginOptionsFilterInput = {
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
+  classPrefix?: Maybe<StringQueryOperatorInput>;
+  showLineNumbers?: Maybe<BooleanQueryOperatorInput>;
+  noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   configDir?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
@@ -3040,7 +3052,7 @@ export type BlogTemplateQueryVariables = Exact<{
 
 export type BlogTemplateQuery = { pageQueryData?: Maybe<(
     Pick<MarkdownRemark, 'rawMarkdownBody'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'thumbnail'>> }
   )> };
 
 export type Etc2TemplateQueryVariables = Exact<{
