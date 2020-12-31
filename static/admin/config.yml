@@ -42,3 +42,23 @@ collections:
       - { label: "Template", name: "template", widget: "hidden", default: "SandboxTemplate"}
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
+  - name: "etc2"
+    label: "ETC2"
+    folder: "src/pages/etc2"
+    create: true
+    editor:
+      preview: true # プレビュー表示を有効化
+    publish_mode: editorial_workflow # ワークフロー管理を有効化
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Template", name: "template", widget: "select", options: ["ETC2Template"]}
+      - { label: "リード", name: "lead", widget: "text" }
+      - { label: "Publish Date", name: "publish_date", widget: 'date', default: '', format: 'YYYY-MM-DD'}
+      - label: "セクション"
+        name: "section"
+        widget: "list"
+        fields:
+          - { label: "セクションタイトル", name: "title", widget: "string" }
+          - { label: "画像", name: "image", widget: "image" }
+          - { label: "セクション文章", name: "text", widget: "markdown" }
+      - { label: "本文（末尾）", name: "body", widget: "markdown" }
