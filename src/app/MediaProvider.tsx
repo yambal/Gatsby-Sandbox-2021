@@ -64,27 +64,25 @@ export const useMedia = () => {
 }
 
 export const findFluidMedia = (relativePath: string | null | undefined) => {
-  console.log(findFluidMedia)
-
   if(!relativePath){
     return undefined
   }
   const Medias = React.useContext(MediaContext)
-  const media = Medias.allFile.edges.find(
+  const findMedia = Medias.allFile.edges.find(
     (edge) => {
       console.log(`/media/${edge.node.relativePath} === ${relativePath}`)
       return `/media/${edge.node.relativePath}` === relativePath
     }
   )
-  if(media && media.node.childImageSharp?.fluid) {
-    const f = media.node.childImageSharp?.fluid
-    const r: FluidObject = {
-      sizes: f?.sizes,
-      srcSet: f?.srcSet,
-      src: f?.srcSet,
-      aspectRatio: f?.aspectRatio
+  if(findMedia && findMedia.node.childImageSharp?.fluid) {
+    const findMediaFluid = findMedia.node.childImageSharp?.fluid
+    const fluid: FluidObject = {
+      sizes: findMediaFluid.sizes,
+      srcSet: findMediaFluid.srcSet,
+      src: findMediaFluid.srcSet,
+      aspectRatio: findMediaFluid.aspectRatio
     }
-    return r
+    return fluid
   }
   return undefined
 }
