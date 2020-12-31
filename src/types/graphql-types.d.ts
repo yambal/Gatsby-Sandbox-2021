@@ -2994,7 +2994,7 @@ export type MediaProviderQuery = { allFile: (
     Pick<FileConnection, 'totalCount'>
     & { edges: Array<{ node: (
         Pick<File, 'sourceInstanceName' | 'relativePath'>
-        & { childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }
+        & { childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment>, fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }
       ) }> }
   ) };
 
