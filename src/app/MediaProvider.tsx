@@ -42,7 +42,7 @@ export const MediaProvider: React.FC = (props) => {
               fluid(maxWidth: 1280) {
                 ...GatsbyImageSharpFluid
               }
-              fixed {
+              fixed(maxWidth: 1280) {
                 ...GatsbyImageSharpFixed
               }
             }
