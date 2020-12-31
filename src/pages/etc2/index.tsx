@@ -17,9 +17,9 @@ function Etc2Index(props: Etc2IndexDataProps){
 
   return (
     <PageLayout location={location}>
-      <SEO {...props} pageTitle="砂場" pageKeywords={['テスト', '実験']}/>
+      <SEO {...props} pageTitle="ETC2" pageKeywords={['テスト', '実験']}/>
       <Container>
-        <Box as="h1">砂場</Box>
+        <Box as="h1">ETC2</Box>
         {pageQueryData.edges.map(
           (edge) => {
             if (edge.node.fields?.slug && edge.node.frontmatter?.title) {
@@ -39,7 +39,7 @@ function Etc2Index(props: Etc2IndexDataProps){
 
 export const pageQuery = graphql`
   query Etc2Index {
-    pageQueryData:   allMarkdownRemark(filter: {frontmatter: {template: {eq: "ETC2IndexTemplate"}}}, sort: {fields: frontmatter___publish_date, order: DESC}) {
+    pageQueryData:   allMarkdownRemark(filter: {frontmatter: {template: {eq: "Etc2Template"}}}, sort: {fields: frontmatter___publish_date, order: DESC}) {
       edges {
         node {
           frontmatter {

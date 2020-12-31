@@ -6,6 +6,7 @@ import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
 import { PageLayout } from '../page/PageLayout'
+import { Box } from '@xstyled/styled-components'
 
 /**
  * pageQuery のレスポンス
@@ -17,6 +18,8 @@ type Etc2TemplateDataProps = PageProps & {
 
 function Etc2Template(props: Etc2TemplateDataProps){
   const { data: { pageQueryData }, location } = props
+  const { rawMarkdownBody, frontmatter } = pageQueryData
+  const { section: sections } = frontmatter
   const siteMetadata = useSiteMetadata()
 
   return (
@@ -24,8 +27,19 @@ function Etc2Template(props: Etc2TemplateDataProps){
       <SEO {...props} pageTitle={pageQueryData?.frontmatter?.title} pageKeywords={['テスト', '実験']}/>
       <Container>
         <h1>{pageQueryData?.frontmatter?.title}</h1>
-        <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
-        <pre>{JSON.stringify(siteMetadata, null, 2)}</pre>
+        {sections && sections.map(
+          (section, index) => {
+            return (
+              <Box key={`section-${index}`}>
+                <h2>{section.title}</h2>
+                <MarkdownRenderer rawMarkdown={section.text} isPreview={false} />
+                {section.image}
+              </Box>
+            )
+          }
+        )}
+        <MarkdownRenderer rawMarkdown={rawMarkdownBody} isPreview={false} />
+        <pre>{JSON.stringify(pageQueryData, null, 2)}</pre>
       </Container>
     </PageLayout>
   )
