@@ -54,6 +54,7 @@ export const pageQuery = graphql`
       rawMarkdownBody
       frontmatter {
         title
+        eyecatch
       }
     }
   }

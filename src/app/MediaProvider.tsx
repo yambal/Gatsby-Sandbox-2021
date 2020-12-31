@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from 'gatsby'
  * クエリの結果の型はビルド時に生成される
  **/
 import { MediaProviderQuery } from '../types/graphql-types'
-import { FluidObject } from "gatsby-image";
+import { FluidObject, FixedObject } from "gatsby-image";
 
 /**
  * Context 
@@ -39,8 +39,21 @@ export const MediaProvider: React.FC = (props) => {
             sourceInstanceName
             relativePath
             childImageSharp {
-              fluid(maxWidth: 1280) {
-                ...GatsbyImageSharpFluid
+              fixed(width: 1280, height: 720, toFormat: WEBP, cropFocus: CENTER, fit: COVER, webpQuality: 50) {
+                base64
+                aspectRatio
+                width
+                height
+                src
+                srcSet
+              }
+              fluid(toFormat: WEBP, webpQuality: 50, maxWidth: 1280, srcSetBreakpoints: [576, 767, 991, 1199]) {
+                base64
+                aspectRatio
+                src
+                srcSet
+                sizes
+                originalImg
               }
             }
           }
@@ -63,6 +76,34 @@ export const useMedia = () => {
   return React.useContext(MediaContext)
 }
 
+export const findFixdMedia = (relativePath: string | null | undefined) => {
+  if(!relativePath){
+    return undefined
+  }
+  const Medias = React.useContext(MediaContext)
+  const findMedia = Medias.allFile.edges.find(
+    (edge) => {
+      console.log(`/media/${edge.node.relativePath} === ${relativePath}`)
+      return `/media/${edge.node.relativePath}` === relativePath
+    }
+  )
+  if(findMedia && findMedia.node.childImageSharp?.fixed) {
+    const findMediaFixed = findMedia.node.childImageSharp?.fixed
+    const fixedBase64 = findMediaFixed.base64
+    if(findMediaFixed && fixedBase64){
+      const fluid: FixedObject = {
+        base64: fixedBase64,
+        width: findMediaFixed.width,
+        height: findMediaFixed.height,
+        srcSet: findMediaFixed.srcSet,
+        src: findMediaFixed.src,
+      }
+      return fluid
+    }
+  }
+  return undefined
+}
+
 export const findFluidMedia = (relativePath: string | null | undefined) => {
   if(!relativePath){
     return undefined
@@ -79,7 +120,7 @@ export const findFluidMedia = (relativePath: string | null | undefined) => {
     const fluid: FluidObject = {
       sizes: findMediaFluid.sizes,
       srcSet: findMediaFluid.srcSet,
-      src: findMediaFluid.srcSet,
+      src: findMediaFluid.src,
       aspectRatio: findMediaFluid.aspectRatio
     }
     return fluid

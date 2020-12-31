@@ -7,7 +7,7 @@ import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
 import { PageLayout } from '../page/PageLayout'
 import { Box } from '@xstyled/styled-components'
-import { findFluidMedia } from '../../app/MediaProvider'
+import { findFluidMedia, findFixdMedia } from '../../app/MediaProvider'
 import Img from "gatsby-image"
 /**
  * pageQuery のレスポンス
@@ -19,11 +19,11 @@ type Etc2TemplateDataProps = PageProps & {
 
 function Etc2Template(props: Etc2TemplateDataProps){
   const { data: { pageQueryData }, location } = props
-  const { rawMarkdownBody, frontmatter } = pageQueryData
-  const { section: sections } = frontmatter
-  const siteMetadata = useSiteMetadata()
+  const frontmatter  = pageQueryData?.frontmatter
+  const rawMarkdownBody  = pageQueryData?.rawMarkdownBody
+  const sections = frontmatter?.section
 
-  
+  const siteMetadata = useSiteMetadata()
 
   return (
     <PageLayout location={location}>
@@ -32,14 +32,17 @@ function Etc2Template(props: Etc2TemplateDataProps){
         <h1>{pageQueryData?.frontmatter?.title}</h1>
         {sections && sections.map(
           (section, index) => {
-            const fluid = findFluidMedia(section.image)
+            const title = section?.title
+            const text = section?.text
+            const sectionImage = section?.image
+            const fluid = findFluidMedia(sectionImage)
+            const fix = findFixdMedia(sectionImage)
             return (
               <Box key={`section-${index}`}>
-                <h2>{section.title}</h2>
-                <MarkdownRenderer rawMarkdown={section.text} isPreview={false} />
-                {section.image}
-                <pre>{JSON.stringify(fluid)}</pre>
+                <h2>{title}</h2>
                 {fluid && <Img fluid={fluid} alt="" />}
+                {fix && <Img fixed={fix} alt="" />}
+                <MarkdownRenderer rawMarkdown={text} isPreview={false} />
               </Box>
             )
           }
@@ -64,6 +67,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         lead
+        eyecatch
         publish_date
         section {
           image

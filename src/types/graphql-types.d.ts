@@ -714,7 +714,7 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___section___image'
   | 'childMarkdownRemark___frontmatter___section___title'
   | 'childMarkdownRemark___frontmatter___section___text'
-  | 'childMarkdownRemark___frontmatter___thumbnail'
+  | 'childMarkdownRemark___frontmatter___eyecatch'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -1533,7 +1533,7 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___section___image'
   | 'frontmatter___section___title'
   | 'frontmatter___section___text'
-  | 'frontmatter___thumbnail'
+  | 'frontmatter___eyecatch'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1665,7 +1665,7 @@ export type MarkdownRemarkFrontmatter = {
   lead?: Maybe<Scalars['String']>;
   publish_date?: Maybe<Scalars['Date']>;
   section?: Maybe<Array<Maybe<MarkdownRemarkFrontmatterSection>>>;
-  thumbnail?: Maybe<Scalars['String']>;
+  eyecatch?: Maybe<Scalars['String']>;
 };
 
 
@@ -1682,7 +1682,7 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   lead?: Maybe<StringQueryOperatorInput>;
   publish_date?: Maybe<DateQueryOperatorInput>;
   section?: Maybe<MarkdownRemarkFrontmatterSectionFilterListInput>;
-  thumbnail?: Maybe<StringQueryOperatorInput>;
+  eyecatch?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkFrontmatterSection = {
@@ -2563,9 +2563,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
-  | 'pluginCreator___pluginOptions___classPrefix'
-  | 'pluginCreator___pluginOptions___showLineNumbers'
-  | 'pluginCreator___pluginOptions___noInlineHighlight'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___configDir'
   | 'pluginCreator___pluginOptions___pathCheck'
@@ -2771,9 +2768,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
-  | 'pluginOptions___classPrefix'
-  | 'pluginOptions___showLineNumbers'
-  | 'pluginOptions___noInlineHighlight'
   | 'pluginOptions___fileName'
   | 'pluginOptions___configDir'
   | 'pluginOptions___pathCheck'
@@ -2897,9 +2891,6 @@ export type SitePluginPluginOptions = {
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
-  classPrefix?: Maybe<Scalars['String']>;
-  showLineNumbers?: Maybe<Scalars['Boolean']>;
-  noInlineHighlight?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
   configDir?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
@@ -2922,9 +2913,6 @@ export type SitePluginPluginOptionsFilterInput = {
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
-  classPrefix?: Maybe<StringQueryOperatorInput>;
-  showLineNumbers?: Maybe<BooleanQueryOperatorInput>;
-  noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   configDir?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
@@ -3036,7 +3024,7 @@ export type MediaProviderQuery = { allFile: (
     Pick<FileConnection, 'totalCount'>
     & { edges: Array<{ node: (
         Pick<File, 'sourceInstanceName' | 'relativePath'>
-        & { childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment>, fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }
+        & { childImageSharp?: Maybe<{ fixed?: Maybe<Pick<ImageSharpFixed, 'base64' | 'aspectRatio' | 'width' | 'height' | 'src' | 'srcSet'>>, fluid?: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes' | 'originalImg'>> }> }
       ) }> }
   ) };
 
@@ -3052,7 +3040,7 @@ export type BlogTemplateQueryVariables = Exact<{
 
 export type BlogTemplateQuery = { pageQueryData?: Maybe<(
     Pick<MarkdownRemark, 'rawMarkdownBody'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'thumbnail'>> }
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'eyecatch'>> }
   )> };
 
 export type Etc2TemplateQueryVariables = Exact<{
@@ -3063,7 +3051,7 @@ export type Etc2TemplateQueryVariables = Exact<{
 export type Etc2TemplateQuery = { pageQueryData?: Maybe<(
     Pick<MarkdownRemark, 'rawMarkdownBody'>
     & { frontmatter?: Maybe<(
-      Pick<MarkdownRemarkFrontmatter, 'title' | 'lead' | 'publish_date'>
+      Pick<MarkdownRemarkFrontmatter, 'title' | 'lead' | 'eyecatch' | 'publish_date'>
       & { section?: Maybe<Array<Maybe<Pick<MarkdownRemarkFrontmatterSection, 'image' | 'title' | 'text'>>>> }
     )> }
   )> };
@@ -3075,7 +3063,7 @@ export type HomeTemplateQueryVariables = Exact<{
 
 export type HomeTemplateQuery = { pageQueryData?: Maybe<(
     Pick<MarkdownRemark, 'rawMarkdownBody'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'eyecatch'>> }
   )> };
 
 export type SandboxTemplateQueryVariables = Exact<{
@@ -3085,7 +3073,7 @@ export type SandboxTemplateQueryVariables = Exact<{
 
 export type SandboxTemplateQuery = { pageQueryData?: Maybe<(
     Pick<MarkdownRemark, 'rawMarkdownBody'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'eyecatch'>> }
   )> };
 
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;

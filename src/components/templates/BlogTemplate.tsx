@@ -20,7 +20,7 @@ type BlogTemplateDataProps = PageProps & {
 function BlogTemplate(props: BlogTemplateDataProps){
   const { data: { pageQueryData }, location } = props
   const siteMetadata = useSiteMetadata()
-  const fluid = findFluidMedia(pageQueryData?.frontmatter?.thumbnail)
+  const fluid = findFluidMedia(pageQueryData?.frontmatter?.eyecatch)
 
   return (
     <PageLayout location={location}>
@@ -30,7 +30,6 @@ function BlogTemplate(props: BlogTemplateDataProps){
         <h1>{pageQueryData?.frontmatter?.title}</h1>
         <MarkdownRenderer rawMarkdown={pageQueryData?.rawMarkdownBody} isPreview={false} />
         <pre>{JSON.stringify(pageQueryData, null, 2)}</pre>
-        <pre>{pageQueryData?.frontmatter?.thumbnail}: {JSON.stringify(fluid, null, 2)}</pre>
       </Container>
     </PageLayout>
   )
@@ -48,7 +47,7 @@ export const pageQuery = graphql`
       rawMarkdownBody
       frontmatter {
         title,
-        thumbnail
+        eyecatch
       }
     }
   }
