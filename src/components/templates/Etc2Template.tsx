@@ -43,7 +43,15 @@ export const pageQuery = graphql`
       rawMarkdownBody
       frontmatter {
         title
+        lead
+        publish_date
+        section {
+          image
+          title
+          text
+        }
       }
+      rawMarkdownBody
     }
   }
 `

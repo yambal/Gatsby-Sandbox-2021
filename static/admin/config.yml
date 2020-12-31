@@ -51,7 +51,7 @@ collections:
     publish_mode: editorial_workflow # ワークフロー管理を有効化
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Template", name: "template", widget: "select", options: ["ETC2Template"]}
+      - { label: "Template", name: "template", widget: "hidden", options: "Etc2Template"}
       - { label: "リード", name: "lead", widget: "text" }
       - { label: "Publish Date", name: "publish_date", widget: 'date', default: '', format: 'YYYY-MM-DD'}
       - label: "セクション"

@@ -710,6 +710,11 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___template'
   | 'childMarkdownRemark___frontmatter___thumbnail'
   | 'childMarkdownRemark___frontmatter___publish_date'
+  | 'childMarkdownRemark___frontmatter___lead'
+  | 'childMarkdownRemark___frontmatter___section'
+  | 'childMarkdownRemark___frontmatter___section___image'
+  | 'childMarkdownRemark___frontmatter___section___title'
+  | 'childMarkdownRemark___frontmatter___section___text'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -1524,6 +1529,11 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___template'
   | 'frontmatter___thumbnail'
   | 'frontmatter___publish_date'
+  | 'frontmatter___lead'
+  | 'frontmatter___section'
+  | 'frontmatter___section___image'
+  | 'frontmatter___section___title'
+  | 'frontmatter___section___text'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1654,6 +1664,8 @@ export type MarkdownRemarkFrontmatter = {
   template?: Maybe<Scalars['String']>;
   thumbnail?: Maybe<Scalars['String']>;
   publish_date?: Maybe<Scalars['Date']>;
+  lead?: Maybe<Scalars['String']>;
+  section?: Maybe<Array<Maybe<MarkdownRemarkFrontmatterSection>>>;
 };
 
 
@@ -1669,6 +1681,24 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   template?: Maybe<StringQueryOperatorInput>;
   thumbnail?: Maybe<StringQueryOperatorInput>;
   publish_date?: Maybe<DateQueryOperatorInput>;
+  lead?: Maybe<StringQueryOperatorInput>;
+  section?: Maybe<MarkdownRemarkFrontmatterSectionFilterListInput>;
+};
+
+export type MarkdownRemarkFrontmatterSection = {
+  image?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type MarkdownRemarkFrontmatterSectionFilterInput = {
+  image?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+};
+
+export type MarkdownRemarkFrontmatterSectionFilterListInput = {
+  elemMatch?: Maybe<MarkdownRemarkFrontmatterSectionFilterInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -3009,7 +3039,10 @@ export type Etc2TemplateQueryVariables = Exact<{
 
 export type Etc2TemplateQuery = { pageQueryData?: Maybe<(
     Pick<MarkdownRemark, 'rawMarkdownBody'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
+    & { frontmatter?: Maybe<(
+      Pick<MarkdownRemarkFrontmatter, 'title' | 'lead' | 'publish_date'>
+      & { section?: Maybe<Array<Maybe<Pick<MarkdownRemarkFrontmatterSection, 'image' | 'title' | 'text'>>>> }
+    )> }
   )> };
 
 export type HomeTemplateQueryVariables = Exact<{
