@@ -10,6 +10,7 @@ import { Container } from '../Layout/Container/Container'
 import { Button } from '../atoms/Button'
 import { Icon } from '../atoms/Icon/Icon'
 import { PageLayout } from '../page/PageLayout'
+import { useMedia } from '../../app/MediaProvider'
 
 /**
  * pageQuery のレスポンス
@@ -22,8 +23,7 @@ type HomeTemplateDataProps = PageProps & {
 function HomeTemplate(props: HomeTemplateDataProps){
   const { data: { pageQueryData }, location } = props
   const siteMetadata = useSiteMetadata()
-
-  console.log(26, location)
+  const medias = useMedia()
 
   return (
     <PageLayout location={location}>
@@ -36,6 +36,7 @@ function HomeTemplate(props: HomeTemplateDataProps){
         <Button variant="primary">Button</Button>
         <Button variant="success">Success</Button>
         <Icon prefix="fas" iconName="coffee" />
+        <pre>{JSON.stringify(medias)}</pre>
       </Container>
     </PageLayout>
   )

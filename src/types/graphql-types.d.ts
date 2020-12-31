@@ -2987,6 +2987,14 @@ export type WebPOptions = {
   quality?: Maybe<Scalars['Int']>;
 };
 
+export type MediaProviderQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MediaProviderQuery = { allFile: (
+    Pick<FileConnection, 'totalCount'>
+    & { edges: Array<{ node: Pick<File, 'sourceInstanceName' | 'relativePath'> }> }
+  ) };
+
 export type SiteMetadataProviderQueryVariables = Exact<{ [key: string]: never; }>;
 
 
