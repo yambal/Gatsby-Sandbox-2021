@@ -2519,8 +2519,8 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
   | 'pluginCreator___pluginOptions___implementation___info'
   | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
-  | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___name'
+  | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___classPrefix'
   | 'pluginCreator___pluginOptions___showLineNumbers'
   | 'pluginCreator___pluginOptions___noInlineHighlight'
@@ -2727,8 +2727,8 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginFilepath'
   | 'pluginOptions___implementation___info'
   | 'pluginOptions___cssLoaderOptions___localIdentName'
-  | 'pluginOptions___path'
   | 'pluginOptions___name'
+  | 'pluginOptions___path'
   | 'pluginOptions___classPrefix'
   | 'pluginOptions___showLineNumbers'
   | 'pluginOptions___noInlineHighlight'
@@ -2853,8 +2853,8 @@ export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
   implementation?: Maybe<SitePluginPluginOptionsImplementation>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
-  path?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  path?: Maybe<Scalars['String']>;
   classPrefix?: Maybe<Scalars['String']>;
   showLineNumbers?: Maybe<Scalars['Boolean']>;
   noInlineHighlight?: Maybe<Scalars['Boolean']>;
@@ -2878,8 +2878,8 @@ export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
   implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
-  path?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  path?: Maybe<StringQueryOperatorInput>;
   classPrefix?: Maybe<StringQueryOperatorInput>;
   showLineNumbers?: Maybe<BooleanQueryOperatorInput>;
   noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
@@ -2992,7 +2992,10 @@ export type MediaProviderQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type MediaProviderQuery = { allFile: (
     Pick<FileConnection, 'totalCount'>
-    & { edges: Array<{ node: Pick<File, 'sourceInstanceName' | 'relativePath'> }> }
+    & { edges: Array<{ node: (
+        Pick<File, 'sourceInstanceName' | 'relativePath'>
+        & { childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }
+      ) }> }
   ) };
 
 export type SiteMetadataProviderQueryVariables = Exact<{ [key: string]: never; }>;
@@ -3007,7 +3010,7 @@ export type BlogTemplateQueryVariables = Exact<{
 
 export type BlogTemplateQuery = { pageQueryData?: Maybe<(
     Pick<MarkdownRemark, 'rawMarkdownBody'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'thumbnail'>> }
   )> };
 
 export type HomeTemplateQueryVariables = Exact<{

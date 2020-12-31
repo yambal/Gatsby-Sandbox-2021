@@ -10,6 +10,7 @@ import { useStaticQuery, graphql } from 'gatsby'
  * クエリの結果の型はビルド時に生成される
  **/
 import { MediaProviderQuery } from '../types/graphql-types'
+import { FluidObject } from "gatsby-image";
 
 /**
  * Context 
@@ -35,8 +36,13 @@ export const MediaProvider: React.FC = (props) => {
         totalCount
         edges {
           node {
-            sourceInstanceName,
+            sourceInstanceName
             relativePath
+            childImageSharp {
+              fluid(maxWidth: 1280) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
@@ -57,11 +63,28 @@ export const useMedia = () => {
   return React.useContext(MediaContext)
 }
 
-export const findMedia = (relativePath: string) => {
+export const findFluidMedia = (relativePath: string | null | undefined) => {
+  console.log(findFluidMedia)
+
+  if(!relativePath){
+    return undefined
+  }
   const Medias = React.useContext(MediaContext)
-  return Medias.allFile.edges.find(
+  const media = Medias.allFile.edges.find(
     (edge) => {
-      return edge.node.sourceInstanceName === relativePath
+      console.log(`/media/${edge.node.relativePath} === ${relativePath}`)
+      return `/media/${edge.node.relativePath}` === relativePath
     }
   )
+  if(media && media.node.childImageSharp?.fluid) {
+    const f = media.node.childImageSharp?.fluid
+    const r: FluidObject = {
+      sizes: f?.sizes,
+      srcSet: f?.srcSet,
+      src: f?.srcSet,
+      aspectRatio: f?.aspectRatio
+    }
+    return r
+  }
+  return undefined
 }
