@@ -46,6 +46,7 @@ const NabMenu = styled.divBox`
   margin-right: auto!important;
 
   ${/*sc-selector*/NavMenuLink} {
+    padding: .5rem;
     &.active {
       color: ${th.color('navbarHFg')};
     }
@@ -73,7 +74,8 @@ export function PageLayout({ children, brand, menus, location }: PageLayputProps
       const defMenu: tMenu[] = [
         {label: 'ホーム', url: '/'},
         {label: 'ブログ', url: '/blog'},
-        {label: '砂場', url: '/sandbox'}
+        {label: '砂場', url: '/sandbox'},
+        {label: '仮想大型車', url: '/etc2'}
       ]
 
       const mMenu = menus ? defMenu.concat(menus) : defMenu
