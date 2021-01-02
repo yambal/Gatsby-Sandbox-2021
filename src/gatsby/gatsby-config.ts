@@ -30,6 +30,12 @@ const gatsbyConfig: GatsbyConfig = {
       resolve: 'gatsby-plugin-netlify-cms',
     },
     {
+      resolve: "gatsby-plugin-netlify-cache",
+      options: {
+        cachePublic: true
+      }
+    },
+    {
       resolve: 'gatsby-plugin-sass',
       options: {
         implementation: require('sass'),
