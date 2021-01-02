@@ -60,6 +60,6 @@ collections:
         widget: "list"
         fields:
           - { label: "セクションタイトル", name: "title", widget: "string" }
-          - { label: "画像", name: "image", widget: "image" }
+          - { label: "画像", name: "image", widget: "image", required: false}
           - { label: "セクション文章", name: "text", widget: "markdown" }
       - { label: "本文（末尾）", name: "body", widget: "markdown" }
