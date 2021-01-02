@@ -40,7 +40,7 @@ function Etc2Template(props: Etc2TemplateDataProps){
             return (
               <Box key={`section-${index}`}>
                 <h2>{title}</h2>
-                {fluid && <Img fluid={fluid} alt="" />}
+                {fluid && <Img fluid={fluid} alt=""/>}
                 {fix && <Img fixed={fix} alt="" />}
                 <MarkdownRenderer rawMarkdown={text} isPreview={false} />
               </Box>

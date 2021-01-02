@@ -16,7 +16,7 @@ collections:
           - { label: "Template", name: "template", widget: "hidden", default: "HomeTemplate"}
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-          - { label: "Featured Image", name: "thumbnail", widget: "image" }
+          - { label: "アイキャッチ", name: "eyecatch", widget: "image" }
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
@@ -28,7 +28,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Template", name: "template", widget: "select", options: ["BlogTemplate"]}
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "アイキャッチ", name: "eyecatch", widget: "image" }
       - { label: "Publish Date", name: "publish_date", widget: 'date', default: '', format: 'YYYY-MM-DD'}
   - name: "sandbox"
     label: "SandBox"
@@ -41,7 +41,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Template", name: "template", widget: "hidden", default: "SandboxTemplate"}
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "アイキャッチ", name: "eyecatch", widget: "image" }
   - name: "etc2"
     label: "ETC2"
     folder: "src/pages/etc2"
@@ -53,6 +53,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Template", name: "template", widget: "hidden", options: "Etc2Template"}
       - { label: "リード", name: "lead", widget: "text" }
+      - { label: "アイキャッチ", name: "eyecatch", widget: "image" }
       - { label: "Publish Date", name: "publish_date", widget: 'date', default: '', format: 'YYYY-MM-DD'}
       - label: "セクション"
         name: "section"
