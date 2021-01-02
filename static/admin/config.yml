@@ -46,7 +46,7 @@ collections:
   - name: "etc2"
     label: "ETC2"
     folder: "src/pages/etc2"
-    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
+    slug: "{{year}}{{month}}{{day}}{{minute}}{{second}}"
     create: true
     editor:
       preview: true # プレビュー表示を有効化
