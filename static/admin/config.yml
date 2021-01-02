@@ -42,9 +42,11 @@ collections:
       - { label: "Template", name: "template", widget: "hidden", default: "SandboxTemplate"}
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "アイキャッチ", name: "eyecatch", widget: "image" }
+
   - name: "etc2"
     label: "ETC2"
     folder: "src/pages/etc2"
+    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     create: true
     editor:
       preview: true # プレビュー表示を有効化
