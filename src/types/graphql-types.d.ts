@@ -708,13 +708,13 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___id'
   | 'childMarkdownRemark___frontmatter___title'
   | 'childMarkdownRemark___frontmatter___template'
-  | 'childMarkdownRemark___frontmatter___lead'
+  | 'childMarkdownRemark___frontmatter___eyecatch'
   | 'childMarkdownRemark___frontmatter___publish_date'
+  | 'childMarkdownRemark___frontmatter___lead'
   | 'childMarkdownRemark___frontmatter___section'
   | 'childMarkdownRemark___frontmatter___section___image'
   | 'childMarkdownRemark___frontmatter___section___title'
   | 'childMarkdownRemark___frontmatter___section___text'
-  | 'childMarkdownRemark___frontmatter___eyecatch'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -1527,13 +1527,13 @@ export type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter___title'
   | 'frontmatter___template'
-  | 'frontmatter___lead'
+  | 'frontmatter___eyecatch'
   | 'frontmatter___publish_date'
+  | 'frontmatter___lead'
   | 'frontmatter___section'
   | 'frontmatter___section___image'
   | 'frontmatter___section___title'
   | 'frontmatter___section___text'
-  | 'frontmatter___eyecatch'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1662,10 +1662,10 @@ export type MarkdownRemarkFilterInput = {
 export type MarkdownRemarkFrontmatter = {
   title?: Maybe<Scalars['String']>;
   template?: Maybe<Scalars['String']>;
-  lead?: Maybe<Scalars['String']>;
-  publish_date?: Maybe<Scalars['Date']>;
-  section?: Maybe<Array<Maybe<MarkdownRemarkFrontmatterSection>>>;
   eyecatch?: Maybe<Scalars['String']>;
+  publish_date?: Maybe<Scalars['Date']>;
+  lead?: Maybe<Scalars['String']>;
+  section?: Maybe<Array<Maybe<MarkdownRemarkFrontmatterSection>>>;
 };
 
 
@@ -1679,10 +1679,10 @@ export type MarkdownRemarkFrontmatterPublish_DateArgs = {
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   template?: Maybe<StringQueryOperatorInput>;
-  lead?: Maybe<StringQueryOperatorInput>;
-  publish_date?: Maybe<DateQueryOperatorInput>;
-  section?: Maybe<MarkdownRemarkFrontmatterSectionFilterListInput>;
   eyecatch?: Maybe<StringQueryOperatorInput>;
+  publish_date?: Maybe<DateQueryOperatorInput>;
+  lead?: Maybe<StringQueryOperatorInput>;
+  section?: Maybe<MarkdownRemarkFrontmatterSectionFilterListInput>;
 };
 
 export type MarkdownRemarkFrontmatterSection = {
@@ -2559,6 +2559,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___version'
   | 'pluginCreator___pluginOptions___plugins___nodeAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
+  | 'pluginCreator___pluginOptions___cachePublic'
   | 'pluginCreator___pluginOptions___implementation___info'
   | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginCreator___pluginOptions___name'
@@ -2764,6 +2765,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginOptions___name'
   | 'pluginOptions___plugins___nodeAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
+  | 'pluginOptions___cachePublic'
   | 'pluginOptions___implementation___info'
   | 'pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginOptions___name'
@@ -2887,6 +2889,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
+  cachePublic?: Maybe<Scalars['Boolean']>;
   implementation?: Maybe<SitePluginPluginOptionsImplementation>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
   name?: Maybe<Scalars['String']>;
@@ -2909,6 +2912,7 @@ export type SitePluginPluginOptionsCssLoaderOptionsFilterInput = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+  cachePublic?: Maybe<BooleanQueryOperatorInput>;
   implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;

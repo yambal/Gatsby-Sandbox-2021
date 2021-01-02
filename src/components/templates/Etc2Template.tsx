@@ -6,9 +6,11 @@ import { useSiteMetadata } from '../../app/SiteMetadataProvider'
 import { SEO } from '../SEO'
 import { Container } from '../Layout/Container/Container'
 import { PageLayout } from '../page/PageLayout'
-import { Box } from '@xstyled/styled-components'
+import styled, { Box } from '@xstyled/styled-components'
 import { findFluidMedia, findFixdMedia } from '../../app/MediaProvider'
 import Img from "gatsby-image"
+import { Rectangle } from '../Layout/Rectangle/Rectangle'
+
 /**
  * pageQuery のレスポンス
  * gatsby-plugin-graphql-codegen で types\graphql-types.d.ts に自動追記される型を参照する
@@ -40,8 +42,9 @@ function Etc2Template(props: Etc2TemplateDataProps){
             return (
               <Box key={`section-${index}`}>
                 <h2>{title}</h2>
-                {fluid && <Img fluid={fluid} alt=""/>}
-                {fix && <Img fixed={fix} alt="" />}
+                <Rectangle aspect={1.618}>
+                  {fluid && <Img fluid={fluid} alt=""/>}
+                </Rectangle>
                 <MarkdownRenderer rawMarkdown={text} isPreview={false} />
               </Box>
             )
