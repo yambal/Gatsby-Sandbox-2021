@@ -28,7 +28,7 @@ const RectangleWrapper = styled.divBox<RectangleWrapperProps>`
 
     /* gatsby IMG 対応*/
     .gatsby-image-wrapper {
-      width: 100%;
+      width: 100%; 
       height: 100%;
 
       div {
