@@ -2517,6 +2517,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___version'
   | 'pluginCreator___pluginOptions___plugins___nodeAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
+  | 'pluginCreator___pluginOptions___cachePublic'
   | 'pluginCreator___pluginOptions___implementation___info'
   | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginCreator___pluginOptions___name'
@@ -2725,6 +2726,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginOptions___name'
   | 'pluginOptions___plugins___nodeAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
+  | 'pluginOptions___cachePublic'
   | 'pluginOptions___implementation___info'
   | 'pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginOptions___name'
@@ -2851,6 +2853,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
+  cachePublic?: Maybe<Scalars['Boolean']>;
   implementation?: Maybe<SitePluginPluginOptionsImplementation>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
   name?: Maybe<Scalars['String']>;
@@ -2876,6 +2879,7 @@ export type SitePluginPluginOptionsCssLoaderOptionsFilterInput = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+  cachePublic?: Maybe<BooleanQueryOperatorInput>;
   implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
@@ -2994,7 +2998,7 @@ export type MediaProviderQuery = { allFile: (
     Pick<FileConnection, 'totalCount'>
     & { edges: Array<{ node: (
         Pick<File, 'sourceInstanceName' | 'relativePath'>
-        & { childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment>, fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }
+        & { childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }
       ) }> }
   ) };
 

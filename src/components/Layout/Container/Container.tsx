@@ -4,12 +4,15 @@ import { transitions } from "polished"
 export type ContainerProps = {
   fluid?: boolean
   breakPoint?: 'sm' | 'md' | 'lg' | 'xl'
+  borderless?: boolean
 }
 
 export const Container = (styled(Box).attrs({}) as typeof styled.divBox)<ContainerProps>`
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+  ${props => !props.borderless && `padding-left: 15px;`}
+  ${props => !props.borderless && `padding-right: 15px;`}
   transition: ${th.transition('container')};
 
   ${props => !props.fluid && up('sm',css`max-width: 576px;`)}
